@@ -63,20 +63,22 @@ function frameExecution(){
         a.draw();
     })
     
+    // 점프
     if(jumpSwitch == true){
-        Character.y--;
+        Character.y -= 5;
         jumpTimer++;
     }
     if(jumpSwitch == false){
-        if(Character.y < 200) Character.y++;
+        if(Character.y < 200) Character.y += 2;
     }
 
-    if(jumpTimer > 100){ jumpSwitch = false; }
+    if(jumpTimer > 20){ jumpSwitch = false; jumpTimer = 0; }
     Character.draw()
 }
 
 frameExecution();
 
+// 스페이스를 누를 때마다 점프하기
 var jumpSwitch = false; // 점프를 하는지 안 하는지 체크해주는 거
 document.addEventListener('keydown', function(e){
     if(e.code === 'Space'){
