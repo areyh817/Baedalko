@@ -36,3 +36,28 @@ class Cactus{
 
 let cactus = new Cactus();
 cactus.draw();
+
+
+let timer = 0;
+let cactusCount = [];
+function frameExecution(){
+    requestAnimationFrame(frameExecution);
+    timer++;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    if(timer % 85 == 0){
+        let cactus = new Cactus();
+        cactusCount.push(cactus);
+        
+    }
+
+    cactusCount.forEach((a) => {
+        a.x--;
+        a.draw();
+    })
+
+    Character.draw()
+}
+
+frameExecution();
