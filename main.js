@@ -48,7 +48,7 @@ function frameExecution(){
   
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    if(timer % 85 == 0){
+    if(timer % 60 == 0){
         let cactus = new Cactus();
         cactusCount.push(cactus);
         
