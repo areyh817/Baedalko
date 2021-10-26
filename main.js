@@ -7,6 +7,9 @@ canvas.width = window.innerWidth - 100;
 canvas.height = window.innerHeight - 100;
 
 
+let firstgradeImg = new Image();
+firstgradeImg.src = '1grade.gif';
+
 let Character = {
     x : 10,
     y : 200,
@@ -15,7 +18,7 @@ let Character = {
 
     draw(){
         ctx.fillStyle = "green";
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.drawImage(firstgradeImg, this.x, this.y);
     }
 }
 
