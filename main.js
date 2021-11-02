@@ -11,7 +11,7 @@ let firstgradeImg = new Image();
 firstgradeImg.src = '1grade.gif';
 
 let Character = {
-    x : 10,
+    x : 50,
     y : 300,
     width : 80,
     height : 80,
@@ -68,11 +68,11 @@ function frameExecution(){
     
     // 점프
     if(jumpSwitch == true){
-        Character.y -= 5;
+        Character.y -= 7;
         jumpTimer++;
     }
     if(jumpSwitch == false){
-        if(Character.y < 200) Character.y += 2;
+        if(Character.y < 300) Character.y += 2;
     }
 
     if(jumpTimer > 20){ jumpSwitch = false; jumpTimer = 0; }
