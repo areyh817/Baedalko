@@ -12,9 +12,9 @@ firstgradeImg.src = '1grade.gif';
 
 let Character = {
     x : 10,
-    y : 200,
-    width : 50,
-    height : 50,
+    y : 300,
+    width : 80,
+    height : 80,
 
     draw(){
         ctx.fillStyle = "green";
