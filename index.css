@@ -8,7 +8,7 @@
 .moving {
     position:relative;
     width:100%;height:680px;
-    background:url('backgroundimg.png') 0 center / 100% repeat-x;
+    background:url('backgroundimg.png') 0 center / 2230px repeat-x;
     animation: movebg 2.8s linear infinite;
     background-size : cover ; 
     height: 100vh;
