@@ -7,16 +7,16 @@
 
 .moving {
     position:relative;
-    width:100%;height:500px;
-    background:url('backgroundimg.png') 0 center / 500px repeat-x;
-    animation: movebg 2s linear infinite;
+    width:100%;height:680px;
+    background:url('backgroundimg.png') 0 center / 2230px repeat-x;
+    animation: movebg 2.8s linear infinite;
     background-size : cover ; 
     height: 100vh;
 }
 
 @keyframes movebg {
     0% {background-position:0 center;}
-    100% {background-position:-500px center;}
+    100% {background-position:-2230px center;}
 }
 
 /* 달리기에 관련된 소스 */
