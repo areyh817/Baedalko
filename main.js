@@ -7,10 +7,7 @@ canvas.width = window.innerWidth - 100;
 canvas.height = window.innerHeight - 100;
 
 let firstgradeImg = new Image(); //1학년 체육복
-firstgradeImg.src = 'f_grade.gif';
-
-let js = new Image(); //js-1
-js.src = 'js.png';
+firstgradeImg.src = 'fgrade_1.png';
 
 // let coin = new Image(); //coin-2
 // coin.src = 'coin.png';
@@ -27,40 +24,42 @@ js.src = 'js.png';
 // let java = new Image(); //JAVA-6
 // java.src = 'java.png';
 
-let Character = {
-    x : 90,
-    y : 450,//300
-    width : 80,
-    height : 80,
+let Character = { //캐릭터
+    x : 180,
+    y : 100,//300 //100
+    width : 110, //80 //980 //110
+    height : 130, //80 //980 //130
 
-    draw(){
+    draw() {
         ctx.fillStyle = "green";
-        ctx.drawImage(firstgradeImg, this.x, this.y);
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.drawImage(firstgradeImg, this.x, this.y, this.width, this.height);
     }
 }
 
-Character.draw();
+let js = new Image(); //js-1
+js.src = 'obstacle/js.png';
 
-class Cactus{
-    constructor(){
+let c = new Image();    //c-2
+c.src = 'obstacle/c.png';
+
+class Obstacle { //장애물
+    constructor() {
         this.x = 700;
-        this.y = 510;
-        this.width = 50;
+        this.y = 522; 
+        this.width = 60;
         this.height = 50;
     }
-    draw(){
-        ctx.fillStyle = "red";
-        ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.drawImage(js, this.x, this.y);
+    draw() {
+        ctx.fillStyle = 'red';
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
+        // ctx.drawImage(js, 200, 360, 500, 350);
+        ctx.drawImage(c, this.x, this.y);
     }
 }
 
-let cactus = new Cactus();
-cactus.draw();
-
-
 let timer = 0;
-let cactusCount = [];
+let obstacleCount = [];
 let jumpTimer = 0;
 let animation;
 
@@ -70,41 +69,49 @@ function frameExecution(){
   
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    if(timer % 180 == 0){
-        let cactus = new Cactus();
-        cactusCount.push(cactus);
+    if(timer % 60 === 0) {
+        let obstacle = new Obstacle();
+        obstacleCount.push(obstacle);
         
     }
 
-    cactusCount.forEach((a, i, o) => {
+    obstacleCount.forEach((a, i, o) => {
         // x좌표가 0미만이면 제거해야한다.
-        if(a.x < 0){
+        if(a.x < 0) {
             o.splice(i, 1);
         }
-        a.x--;
-        collision(Character, a); //충돌확인
+        a.x-=10;
+        collision(Character, a); //캐릭터와 장애물 충돌확인 
         a.draw();
     })
     
     // 점프
-    if(jumpSwitch == true){
-        Character.y -= 7;
+    if (jumpSwitch == true) {
+        Character.y -= 9;
         jumpTimer++;
     }
-    if(jumpSwitch == false){
-        if(Character.y < 440) Character.y += 7;
+
+    if (jumpSwitch == false) {
+        if(Character.y < 440) { //440
+            Character.y += 9;
+        }
     }
 
-    if(jumpTimer > 20){ jumpSwitch = false; jumpTimer = 0; }
+    if (jumpTimer > 20) {  
+        jumpSwitch = false; 
+        jumpTimer = 0; 
+    }
+
     Character.draw()
 }
 
 frameExecution();
 
-function collision(Character, cactus) {
-    let X_x = cactus.x - (Character.x + Character.width); //x축 차이
-    let Y_y = cactus.y - (Character.y + Character.height); //y축 차이
-    if(X_x < 0 && Y_y < 0) { //충돌
+//충돌 확인
+function collision(Character, obstacle) {
+    let X_x = obstacle.x - (Character.x + Character.width); //x축 차이
+    let Y_y = obstacle.y - (Character.y + Character.height); //y축 차이
+    if((X_x < -5) && (Y_y < -5)) { //충돌
         ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
         cancelAnimationFrame(animation); //게임 중단
     }
@@ -112,9 +119,10 @@ function collision(Character, cactus) {
 
 // 스페이스를 누를 때마다 점프하기
 var jumpSwitch = false; // 점프를 하는지 안 하는지 체크해주는 거
-document.addEventListener('keydown', function(e){
+document.addEventListener('keydown', function(e) {
     if(e.code === 'Space'){
         jumpSwitch = true;
     }
 })
 
+let rand = Math.floor(Math.random() * 7) + 1;
