@@ -9,130 +9,43 @@ canvas.height = window.innerHeight - 100;
 let firstgradeImg = new Image(); //1학년 체육복
 firstgradeImg.src = 'fgrade_1.png';
 
+// let coin = new Image(); //coin-2
+// coin.src = 'coin.png';
+
+// let C = new Image(); //C-3
+// C.src = 'c.png';
+
+// let CC = new Image(); //C++-4
+// CC.src = 'cc.png';
+
+// let error = new Image(); //error-5
+// error.src = 'error.png';
+
+// let java = new Image(); //JAVA-6
+// java.src = 'java.png';
+
 let Character = { //캐릭터
     x : 180,
     y : 100,//300 //100
     width : 110, //80 //980 //110
-    height : 130, //80 //980 //130
+    height : 140, //80 //980 //130
 
     draw() {
         ctx.fillStyle = "green";
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(firstgradeImg, this.x, this.y, this.width, this.height);
     }
 }
 
-let c = new Image();    //c-1
-c.src = 'obstacle/c.png';
-
-let cc = new Image(); //cc-2
-cc.src = 'obstacle/cc.png';
-
-let js = new Image(); //js-3
+let js = new Image(); //js-1
 js.src = 'obstacle/js.png';
 
-let cc = new Image(); //cc-4
-cc.src = 'obstacle/cc.png';
+let c = new Image();    //c-2
+c.src = 'obstacle/c.png';
 
-let cc = new Image(); //cc-5
-cc.src = 'obstacle/cc.png';
-
-let cc = new Image(); //cc-6
-cc.src = 'obstacle/cc.png';
-
-class Obstacle_c { //c언어 장애물
+class Obstacle { //장애물
     constructor() {
-        this.x = 700;
-        this.y = 522; 
-        this.width = 60;
-        this.height = 50;
-    }
-    draw() {
-        ctx.fillStyle = 'red';
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
-        // ctx.drawImage(js, 200, 360, 500, 350);
-        ctx.drawImage(c, this.x, this.y);
-    }
-}
-
-class Obstacle_c { //c++ 장애물
-    constructor() {
-        this.x = 700;
-        this.y = 522; 
-        this.width = 60;
-        this.height = 50;
-    }
-    draw() {
-        ctx.fillStyle = 'red';
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
-        // ctx.drawImage(js, 200, 360, 500, 350);
-        ctx.drawImage(cc, this.x, this.y);
-    }
-}
-
-class Obstacle_cc { //c++ 장애물
-    constructor() {
-        this.x = 700;
-        this.y = 522; 
-        this.width = 60;
-        this.height = 50;
-    }
-    draw() {
-        ctx.fillStyle = 'red';
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
-        // ctx.drawImage(js, 200, 360, 500, 350);
-        ctx.drawImage(c, this.x, this.y);
-    }
-}
-
-class Obstacle_c { //c언어 장애물
-    constructor() {
-        this.x = 700;
-        this.y = 522; 
-        this.width = 60;
-        this.height = 50;
-    }
-    draw() {
-        ctx.fillStyle = 'red';
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
-        // ctx.drawImage(js, 200, 360, 500, 350);
-        ctx.drawImage(c, this.x, this.y);
-    }
-}
-
-class Obstacle_c { //c언어 장애물
-    constructor() {
-        this.x = 700;
-        this.y = 522; 
-        this.width = 60;
-        this.height = 50;
-    }
-    draw() {
-        ctx.fillStyle = 'red';
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
-        // ctx.drawImage(js, 200, 360, 500, 350);
-        ctx.drawImage(c, this.x, this.y);
-    }
-}
-
-class Obstacle_c { //c언어 장애물
-    constructor() {
-        this.x = 700;
-        this.y = 522; 
-        this.width = 60;
-        this.height = 50;
-    }
-    draw() {
-        ctx.fillStyle = 'red';
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
-        // ctx.drawImage(js, 200, 360, 500, 350);
-        ctx.drawImage(c, this.x, this.y);
-    }
-}
-
-class Obstacle_c { //c언어 장애물
-    constructor() {
-        this.x = 700;
+        this.x = 900;
         this.y = 522; 
         this.width = 60;
         this.height = 50;
@@ -169,7 +82,7 @@ function frameExecution(){
         }
         a.x-=10;
         collision(Character, a); //캐릭터와 장애물 충돌확인 
-        // a.draw();
+        a.draw();
     })
     
     // 점프
@@ -179,8 +92,8 @@ function frameExecution(){
     }
 
     if (jumpSwitch == false) {
-        if(Character.y < 40) { //440
-            Character.y += 1;
+        if(Character.y < 440) { //440
+            Character.y += 15;
         }
     }
 
@@ -199,6 +112,7 @@ function collision(Character, obstacle) {
     let X_x = obstacle.x - (Character.x + Character.width); //x축 차이
     let Y_y = obstacle.y - (Character.y + Character.height); //y축 차이
     if((X_x < -5) && (Y_y < -5)) { //충돌
+        //alert("충돌쓰");
         ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
         cancelAnimationFrame(animation); //게임 중단
     }
