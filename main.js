@@ -9,6 +9,7 @@ canvas.height = window.innerHeight - 100;
 let firstgradeImg = new Image(); //1학년 체육복
 firstgradeImg.src = 'fgrade_1.png';
 
+
 // let coin = new Image(); //coin-2
 // coin.src = 'coin.png';
 
@@ -47,14 +48,14 @@ class Obstacle { //장애물
     constructor() {
         this.x = 900;
         this.y = 522; 
-        this.width = 60;
-        this.height = 50;
+        this.width = 55;
+        this.height = 55;
     }
     draw() {
         ctx.fillStyle = 'red';
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.fillRect(this.x, this.y, this.width, this.height);
         // ctx.drawImage(js, 200, 360, 500, 350);
-        ctx.drawImage(c, this.x, this.y);
+        ctx.drawImage(c, this.x, this.y, this.width, this.height);
     }
 }
 
@@ -109,10 +110,14 @@ frameExecution();
 
 //충돌 확인
 function collision(Character, obstacle) {
-    let X_x = obstacle.x - (Character.x + Character.width); //x축 차이
-    let Y_y = obstacle.y - (Character.y + Character.height); //y축 차이
-    if((X_x < -5) && (Y_y < -5)) { //충돌
-        //alert("충돌쓰");
+    let Ob_rx = obstacle.x + obstacle.width; //장애물의 우측 끝 x좌표
+    let Pl_rx = Character.x + Character.width;   //캐릭터의 우측 끝 x좌표
+
+    let Ob_ry = obstacle.y + obstacle.height; //장애물의 하단 끝 y좌표
+    let Pl_ry = Character.y + Character.height; //캐릭터의 하단 끝 y좌표 
+    
+    if(Ob_rx > Character.x && obstacle.x < Pl_rx && Ob_ry > Character.y && obstacle.y < Pl_ry) { //충돌
+        alert("충돌쓰");
         ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
         cancelAnimationFrame(animation); //게임 중단
     }
