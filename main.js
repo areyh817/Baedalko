@@ -9,22 +9,6 @@ canvas.height = window.innerHeight - 100;
 let firstgradeImg = new Image(); //1학년 체육복
 firstgradeImg.src = 'fgrade_1.png';
 
-
-// let coin = new Image(); //coin-2
-// coin.src = 'coin.png';
-
-// let C = new Image(); //C-3
-// C.src = 'c.png';
-
-// let CC = new Image(); //C++-4
-// CC.src = 'cc.png';
-
-// let error = new Image(); //error-5
-// error.src = 'error.png';
-
-// let java = new Image(); //JAVA-6
-// java.src = 'java.png';
-
 let Character = { //캐릭터
     x : 180,
     y : 100,//300 //100
@@ -33,21 +17,34 @@ let Character = { //캐릭터
 
     draw() {
         ctx.fillStyle = "green";
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(firstgradeImg, this.x, this.y, this.width, this.height);
     }
 }
 
-let js = new Image(); //js-1
-js.src = 'obstacle/js.png';
-
-let c = new Image();    //c-2
+let c = new Image();    //c-1
 c.src = 'obstacle/c.png';
 
+let cc = new Image(); //c++-2
+cc.src = 'obstacle/cc.png';
+
+let js = new Image(); //js-3
+js.src = 'obstacle/js.png';
+
+let error = new Image(); //error-4
+error.src = 'obstacle/error.png';
+
+let coin = new Image(); //coin-5
+coin.src = 'obstacle/coin.png';
+
+let java = new Image(); //java-6
+java.src = 'obstacle/java.png';
+
+/*
 class Obstacle { //장애물
     constructor() {
         this.x = 900;
-        this.y = 522; 
+        this.y = 530; 
         this.width = 55;
         this.height = 55;
     }
@@ -56,6 +53,79 @@ class Obstacle { //장애물
         ctx.fillRect(this.x, this.y, this.width, this.height);
         // ctx.drawImage(js, 200, 360, 500, 350);
         ctx.drawImage(c, this.x, this.y, this.width, this.height);
+    }
+}
+*/
+
+class C { //C언어 장애물 - 1
+    constructor() {
+        this.x = 900;
+        this.y = 530; 
+        this.width = 55;
+        this.height = 55;
+    }
+    draw() {
+        ctx.drawImage(c, this.x, this.y, this.width, this.height);
+    }
+}
+
+class CC { //C++ 장애물 - 2
+    constructor() {
+        this.x = 900;
+        this.y = 530; 
+        this.width = 55;
+        this.height = 55;
+    }
+    draw() {
+        ctx.drawImage(cc, this.x, this.y, this.width, this.height);
+    }
+}
+
+class JS { //JS 장애물 - 3
+    constructor() {
+        this.x = 900;
+        this.y = 530; 
+        this.width = 55;
+        this.height = 55;
+    }
+    draw() {
+        ctx.drawImage(js, this.x, this.y, this.width, this.height);
+    }
+}
+
+class ERROR { //error 장애물 - 4
+    constructor() {
+        this.x = 900;
+        this.y = 530; 
+        this.width = 60;
+        this.height = 40;
+    }
+    draw() {
+        ctx.drawImage(error, this.x, this.y, this.width, this.height);
+    }
+}
+
+class COIN { //coin 장애물 - 5
+    constructor() {
+        this.x = 900;
+        this.y = 530; 
+        this.width = 55;
+        this.height = 55;
+    }
+    draw() {
+        ctx.drawImage(coin, this.x, this.y, this.width, this.height);
+    }
+}
+
+class JAVA { //C언어 장애물 - 6
+    constructor() {
+        this.x = 900;
+        this.y = 530; 
+        this.width = 55;
+        this.height = 55;
+    }
+    draw() {
+        ctx.drawImage(java, this.x, this.y, this.width, this.height);
     }
 }
 
@@ -67,12 +137,35 @@ let animation;
 function frameExecution(){
     animation = requestAnimationFrame(frameExecution);
     timer++;
+
+    // let score = 0;
+    // score = score + Math.round(getFrameRate()/60);
+    
+    // text("Score : " + score, 500, 50);
   
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     if(timer % 60 === 0) {
-        let obstacle = new Obstacle();
-        obstacleCount.push(obstacle);
+        let c = new C();
+        let cc = new CC();
+        let js = new JS();
+        let error = new ERROR();
+        let coin = new COIN();
+        let java = new JAVA();
+
+
+        let rand = Math.floor(Math.random() * 7) + 1;
+
+        switch(rand) {
+            case 1 : obstacleCount.push(c); break;
+            case 2 : obstacleCount.push(cc); break;
+            case 3 : obstacleCount.push(js); break;
+            case 4 : obstacleCount.push(error); break;
+            case 5 : obstacleCount.push(coin); break;
+            case 6 : obstacleCount.push(java); break;
+        }
+
+        //obstacleCount.push(obstacle);
         
     }
 
@@ -81,14 +174,24 @@ function frameExecution(){
         if(a.x < 0) {
             o.splice(i, 1);
         }
-        a.x-=10;
+
+        let ob_random = Math.floor(Math.random() * 5) + 1;
+        switch(ob_random) {
+            case 1 : a.x -= 3; break;//alert("4"); break;
+            case 2 : a.x -= 7; break;//alert("6"); break;
+            case 3 : a.x -= 12; break;//alert("9"); break;
+            case 4 : a.x -= 19; break;//alert("12"); break;
+            case 5 : a.x -= 25; break;//alert("15"); break;
+
+        }
+       // a.x-=10;
         collision(Character, a); //캐릭터와 장애물 충돌확인 
         a.draw();
     })
     
     // 점프
     if (jumpSwitch == true) {
-        Character.y -= 9;
+        Character.y -= 11;
         jumpTimer++;
     }
 
@@ -103,7 +206,10 @@ function frameExecution(){
         jumpTimer = 0; 
     }
 
-    Character.draw()
+    while(1) {
+        
+    }
+    Character.draw();
 }
 
 frameExecution();
@@ -130,5 +236,3 @@ document.addEventListener('keydown', function(e) {
         jumpSwitch = true;
     }
 })
-
-let rand = Math.floor(Math.random() * 7) + 1;
