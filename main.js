@@ -17,7 +17,7 @@ let Character = { //캐릭터
 
     draw() {
         ctx.fillStyle = "green";
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(firstgradeImg, this.x, this.y, this.width, this.height);
     }
 }
@@ -44,7 +44,7 @@ java.src = 'obstacle/java.png';
 class Obstacle { //장애물
     constructor() {
         this.x = 900;
-        this.y = 530; 
+        this.y = 522; 
         this.width = 55;
         this.height = 55;
     }
@@ -137,11 +137,6 @@ let animation;
 function frameExecution(){
     animation = requestAnimationFrame(frameExecution);
     timer++;
-
-    // let score = 0;
-    // score = score + Math.round(getFrameRate()/60);
-    
-    // text("Score : " + score, 500, 50);
   
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -153,7 +148,6 @@ function frameExecution(){
         let coin = new COIN();
         let java = new JAVA();
 
-
         let rand = Math.floor(Math.random() * 7) + 1;
 
         switch(rand) {
@@ -164,9 +158,6 @@ function frameExecution(){
             case 5 : obstacleCount.push(coin); break;
             case 6 : obstacleCount.push(java); break;
         }
-
-        //obstacleCount.push(obstacle);
-        
     }
 
     obstacleCount.forEach((a, i, o) => {
@@ -174,7 +165,7 @@ function frameExecution(){
         if(a.x < 0) {
             o.splice(i, 1);
         }
-
+        
         let ob_random = Math.floor(Math.random() * 5) + 1;
         switch(ob_random) {
             case 1 : a.x -= 3; break;//alert("4"); break;
@@ -184,14 +175,14 @@ function frameExecution(){
             case 5 : a.x -= 25; break;//alert("15"); break;
 
         }
-       // a.x-=10;
+
         collision(Character, a); //캐릭터와 장애물 충돌확인 
         a.draw();
     })
     
     // 점프
     if (jumpSwitch == true) {
-        Character.y -= 11;
+        Character.y -= 9;
         jumpTimer++;
     }
 
@@ -206,10 +197,7 @@ function frameExecution(){
         jumpTimer = 0; 
     }
 
-    while(1) {
-        
-    }
-    Character.draw();
+    Character.draw()
 }
 
 frameExecution();
@@ -236,3 +224,5 @@ document.addEventListener('keydown', function(e) {
         jumpSwitch = true;
     }
 })
+
+let rand = Math.floor(Math.random() * 7) + 1;
