@@ -16,8 +16,8 @@ let Character = { //캐릭터
     height : 140, //80 //980 //130
 
     draw() {
-        ctx.fillStyle = "green";
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        // ctx.fillStyle = "green";
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(firstgradeImg, this.x, this.y, this.width, this.height);
     }
 }
@@ -40,91 +40,94 @@ coin.src = 'obstacle/coin.png';
 let java = new Image(); //java-6
 java.src = 'obstacle/java.png';
 
-/*
-class Obstacle { //장애물
-    constructor() {
-        this.x = 900;
-        this.y = 522; 
-        this.width = 55;
-        this.height = 55;
-    }
-    draw() {
-        ctx.fillStyle = 'red';
-        ctx.fillRect(this.x, this.y, this.width, this.height);
-        // ctx.drawImage(js, 200, 360, 500, 350);
-        ctx.drawImage(c, this.x, this.y, this.width, this.height);
-    }
-}
-*/
-
 class C { //C언어 장애물 - 1
     constructor() {
-        this.x = 900;
+        this.id = 1;
+        this.x = 1500;
         this.y = 530; 
         this.width = 55;
         this.height = 55;
     }
     draw() {
+        // ctx.fillStyle = "red";
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(c, this.x, this.y, this.width, this.height);
     }
 }
 
 class CC { //C++ 장애물 - 2
     constructor() {
-        this.x = 900;
+        this.id = 2;
+        this.x = 1500;
         this.y = 530; 
         this.width = 55;
         this.height = 55;
     }
     draw() {
+        // ctx.fillStyle = "red";
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(cc, this.x, this.y, this.width, this.height);
     }
 }
 
 class JS { //JS 장애물 - 3
     constructor() {
-        this.x = 900;
+        this.id = 3;
+        this.x = 1500;
         this.y = 530; 
         this.width = 55;
         this.height = 55;
     }
     draw() {
+        // ctx.fillStyle = "red";
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(js, this.x, this.y, this.width, this.height);
     }
 }
 
 class ERROR { //error 장애물 - 4
     constructor() {
-        this.x = 900;
+        this.id = 4;
+        this.x = 1500;
         this.y = 530; 
-        this.width = 60;
-        this.height = 40;
+        this.width = 55;
+        this.height = 55;
     }
     draw() {
+        // ctx.fillStyle = "red";
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(error, this.x, this.y, this.width, this.height);
     }
 }
 
 class COIN { //coin 장애물 - 5
     constructor() {
-        this.x = 900;
+        this.id = 5;
+        this.coin_cnt = 0; //코인 갯수
+        this.coin_bool = false;
+        this.x = 1500;
         this.y = 530; 
         this.width = 55;
         this.height = 55;
     }
     draw() {
+        // ctx.fillStyle = "red";
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(coin, this.x, this.y, this.width, this.height);
     }
 }
 
 class JAVA { //C언어 장애물 - 6
     constructor() {
-        this.x = 900;
+        this.id = 6;
+        this.x = 1500;
         this.y = 530; 
         this.width = 55;
         this.height = 55;
     }
     draw() {
+        ctx.fillStyle = "red";
+        ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(java, this.x, this.y, this.width, this.height);
     }
 }
@@ -148,7 +151,7 @@ function frameExecution(){
         let coin = new COIN();
         let java = new JAVA();
 
-        let rand = Math.floor(Math.random() * 7) + 1;
+        let rand = Math.floor(Math.random() * 7) + 1; //1~7 랜덤
 
         switch(rand) {
             case 1 : obstacleCount.push(c); break;
@@ -166,13 +169,13 @@ function frameExecution(){
             o.splice(i, 1);
         }
         
-        let ob_random = Math.floor(Math.random() * 5) + 1;
+        let ob_random = Math.floor(Math.random() * 4) + 1; //1~4 랜덤
+
         switch(ob_random) {
-            case 1 : a.x -= 3; break;//alert("4"); break;
-            case 2 : a.x -= 7; break;//alert("6"); break;
-            case 3 : a.x -= 12; break;//alert("9"); break;
-            case 4 : a.x -= 19; break;//alert("12"); break;
-            case 5 : a.x -= 25; break;//alert("15"); break;
+            case 1 : a.x -= 3; break;
+            case 2 : a.x -= 9; break;
+            case 3 : a.x -= 22; break;
+            case 4 : a.x -= 28; break;
 
         }
 
@@ -187,7 +190,7 @@ function frameExecution(){
     }
 
     if (jumpSwitch == false) {
-        if(Character.y < 440) { //440
+        if(Character.y < 437) { //440
             Character.y += 15;
         }
     }
@@ -211,9 +214,83 @@ function collision(Character, obstacle) {
     let Pl_ry = Character.y + Character.height; //캐릭터의 하단 끝 y좌표 
     
     if(Ob_rx > Character.x && obstacle.x < Pl_rx && Ob_ry > Character.y && obstacle.y < Pl_ry) { //충돌
-        alert("충돌쓰");
-        ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
-        cancelAnimationFrame(animation); //게임 중단
+        //alert("충돌!");
+        switch(obstacle.id) { //장애물 아이디로 장애물 구별
+            case 1 : case 2 : case 4 : case 6 : //충돌한 것이 c언어, c++, error, java 일 때
+                alert("장애물과 충돌!!");
+                ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
+                cancelAnimationFrame(animation); //게임 중단
+                break;
+
+            case 3 :     //충돌한 것이 js일 때 
+                alert("JS 아이템 획득!!");
+                obstacleCount.forEach((a, i, o) => { //js 아이템 삭제
+                    o.splice(i, 1);
+                })
+                //코딩 문제 나오는 함수
+                break;
+
+            case 5 :    //충돌한 것이 coin일 때
+                let coin = new COIN();
+        
+                alert("COIN 아이템 획득!!");
+                
+                coin.coin_cnt++; //코인 갯수 쁠쁠
+        
+                alert(coin.coin_cnt); //코인 갯수 더해진 거 확인 문구
+
+                obstacleCount.forEach((a, i, o) => { //코인 아이템 삭제
+                    o.splice(i, 1);
+                })
+        
+                if(coin.coin_cnt == 10) { //코인의 개수가 10개라면 
+                    coin.coin_cnt = 0;  //코인 개수 0개로 초기화
+                    //캐릭터 몸 커지는 함수 
+        
+                }
+                
+                break;
+
+
+            /*
+            //충돌할 때 어떤 아이템인지 확인하려고 만든 것
+            case 1 : 
+                alert("c!!");
+                //ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
+                //cancelAnimationFrame(animation); //게임 중단
+                break;
+
+            case 2 : 
+                alert("c++!!");
+                //ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
+                //cancelAnimationFrame(animation); //게임 중단
+                break;
+
+            case 3 : 
+                alert("js!!");
+                //ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
+                //cancelAnimationFrame(animation); //게임 중단
+                break;
+
+            case 4 : 
+                alert("error!!");
+                //ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
+                //cancelAnimationFrame(animation); //게임 중단
+                break;
+
+            case 5 : 
+                alert("coin!!");
+                //ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
+                //cancelAnimationFrame(animation); //게임 중단
+                break;
+
+            case 6 : 
+                alert("java!!");
+                //ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
+                //cancelAnimationFrame(animation); //게임 중단
+                break;
+            */
+        } 
     }
 }
 
@@ -224,5 +301,3 @@ document.addEventListener('keydown', function(e) {
         jumpSwitch = true;
     }
 })
-
-let rand = Math.floor(Math.random() * 7) + 1;
