@@ -137,6 +137,15 @@ let obstacleCount = [];
 let jumpTimer = 0;
 let animation;
 
+//코인 개수 함수
+function CoinCounter() {
+    let coin_cnt = 0;
+    return function() {
+        return ++coin_cnt;
+    }
+}
+let coincounter1 = CoinCounter();
+
 function frameExecution(){
     animation = requestAnimationFrame(frameExecution);
     timer++;
@@ -231,13 +240,16 @@ function collision(Character, obstacle) {
                 break;
 
             case 5 :    //충돌한 것이 coin일 때
-                let coin = new COIN();
+                //let coin = new COIN();
         
                 alert("COIN 아이템 획득!!");
                 
-                coin.coin_cnt++; //코인 갯수 쁠쁠
+                //coin.coin_cnt++; //코인 갯수 쁠쁠
         
-                alert(coin.coin_cnt); //코인 갯수 더해진 거 확인 문구
+                //alert(coin.coin_cnt); //코인 갯수 더해진 거 확인 문구
+                
+                alert(`획득한 코인 개수 : ${coincounter1()}`);
+                //alert(coincounter1());
 
                 obstacleCount.forEach((a, i, o) => { //코인 아이템 삭제
                     o.splice(i, 1);
@@ -245,7 +257,7 @@ function collision(Character, obstacle) {
         
                 if(coin.coin_cnt == 10) { //코인의 개수가 10개라면 
                     coin.coin_cnt = 0;  //코인 개수 0개로 초기화
-                    //캐릭터 몸 커지는 함수 
+                    //속도 빨라지는 함수 
         
                 }
                 
