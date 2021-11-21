@@ -36,3 +36,26 @@
   0% {transform: rotate(0);}
   100% {transform: rotate(360deg);}
 }
+
+/* 점수 */
+.ScoreClass {
+    text-align: center;
+    top: 70px;
+}
+
+.moving .ScoreClass .text { 
+    font-size: 22px;
+    margin: auto;
+    margin-left: auto;
+    margin-top: auto;
+}
+
+.moving .ScoreClass .text .score {
+    width : 50px;
+    height: 30px;
+    font-size: 20;
+    background-color: #df7af8;
+    border: 2px solid #575756;
+    color: #000000;
+    text-align: center;
+}
