@@ -457,8 +457,21 @@ function collision(Character, obstacle) {
                 })
                 //코딩 문제 나오는 함수
                 let answer = itemQuestion();
-                if(answer == "true"){
-                    
+                alert(answer);
+                if(answer == true){
+                    Character.y = 50;
+                    let timerCh = setTimeout(() => 
+                    Character.y = 50,
+                    Character.height = 500,
+                    Character.width = 500,
+                   );
+                
+                   let timerSmall = setTimeout(() => {
+                    Character.y = 300;
+                    Character.height = 140;
+                    Character.width = 110;
+                   }, 5000);
+                   
                 }
                 break;
 
