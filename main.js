@@ -6,19 +6,83 @@ let ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth - 100;
 canvas.height = window.innerHeight - 100;
 
-let firstgradeImg = new Image(); //1학년 체육복
-firstgradeImg.src = 'fgrade_1.png';
+let Fgrade1 = new Image(); //1학년 체육복 - 1
+Fgrade1.src = 'fgrade/fgrade_1.png';
+
+let Fgrade2 = new Image(); //1학년 체육복 - 2
+Fgrade2.src = 'fgrade/fgrade_2.png';
+
+let Fgrade3 = new Image(); //1학년 체육복 - 3
+Fgrade3.src = 'fgrade/fgrade_3.png';
+
+let Fgrade4 = new Image(); //1학년 체육복 - 4
+Fgrade4.src = 'fgrade/fgrade_4.png';
+
+let Fgrade5 = new Image(); //1학년 체육복 - 5
+Fgrade5.src = 'fgrade/fgrade_5.png';
+
+let Fgrade6 = new Image(); //1학년 체육복 - 6
+Fgrade6.src = 'fgrade/fgrade_6.png';
+
+let Fgrade7 = new Image(); //1학년 체육복 - 7
+Fgrade7.src = 'fgrade/fgrade_7.png';
+
+let Fgrade8 = new Image(); //1학년 체육복 - 8
+Fgrade8.src = 'fgrade/fgrade_8.png';
 
 let Character = { //캐릭터
+    //score = 0,
     x : 180,
     y : 100,//300 //100
     width : 110, //80 //980 //110
     height : 140, //80 //980 //130
 
-    draw() {
+    draw1() {
         // ctx.fillStyle = "green";
         // ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.drawImage(firstgradeImg, this.x, this.y, this.width, this.height);
+        ctx.drawImage(Fgrade1, this.x, this.y, this.width, this.height);
+    },
+
+    draw2() {
+        // ctx.fillStyle = "green";
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.drawImage(Fgrade2, this.x, this.y, this.width, this.height);
+    },
+
+    draw3() {
+        // ctx.fillStyle = "green";
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.drawImage(Fgrade3, this.x, this.y, this.width, this.height);
+    },
+
+    draw4() {
+        // ctx.fillStyle = "green";
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.drawImage(Fgrade4, this.x, this.y, this.width, this.height);
+    },
+
+    draw5() {
+        // ctx.fillStyle = "green";
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.drawImage(Fgrade5, this.x, this.y, this.width, this.height);
+    },
+
+    draw6() {
+        // ctx.fillStyle = "green";
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.drawImage(Fgrade6, this.x, this.y, this.width, this.height);
+    },
+
+    draw7() {
+        // ctx.fillStyle = "green";
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.drawImage(Fgrade7, this.x, this.y, this.width, this.height);
+    },
+
+    draw8() {
+        // ctx.fillStyle = "green";
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.drawImage(Fgrade8, this.x, this.y, this.width, this.height);
     }
 }
 
@@ -126,8 +190,8 @@ class JAVA { //C언어 장애물 - 6
         this.height = 55;
     }
     draw() {
-        ctx.fillStyle = "red";
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        // ctx.fillStyle = "red";
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(java, this.x, this.y, this.width, this.height);
     }
 }
@@ -193,6 +257,8 @@ function frameExecution(){
     })
     
     // 점프
+    //setInterval(Jump(), 1000);
+    Jump();
     if (jumpSwitch == true) {
         Character.y -= 9;
         jumpTimer++;
@@ -209,7 +275,9 @@ function frameExecution(){
         jumpTimer = 0; 
     }
 
-    Character.draw()
+    
+    //setInterval(Character.draw1)
+    Character.draw1();
 }
 
 frameExecution();
@@ -237,19 +305,13 @@ function collision(Character, obstacle) {
                     o.splice(i, 1);
                 })
                 //코딩 문제 나오는 함수
+
                 break;
 
             case 5 :    //충돌한 것이 coin일 때
-                //let coin = new COIN();
-        
                 alert("COIN 아이템 획득!!");
-                
-                //coin.coin_cnt++; //코인 갯수 쁠쁠
-        
-                //alert(coin.coin_cnt); //코인 갯수 더해진 거 확인 문구
-                
+
                 alert(`획득한 코인 개수 : ${coincounter1()}`);
-                //alert(coincounter1());
 
                 obstacleCount.forEach((a, i, o) => { //코인 아이템 삭제
                     o.splice(i, 1);
@@ -308,8 +370,10 @@ function collision(Character, obstacle) {
 
 // 스페이스를 누를 때마다 점프하기
 var jumpSwitch = false; // 점프를 하는지 안 하는지 체크해주는 거
-document.addEventListener('keydown', function(e) {
-    if(e.code === 'Space'){
-        jumpSwitch = true;
-    }
-})
+function Jump() {
+    document.addEventListener('keydown', function(e) {
+        if(e.code === 'Space'){
+            jumpSwitch = true;
+        }
+    })
+}
