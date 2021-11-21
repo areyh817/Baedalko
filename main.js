@@ -471,6 +471,7 @@ function collision(Character, obstacle) {
                     Character.width = 500;
                     }, );
 
+                    
                    let timerSmall = setTimeout(() => {
                     Character.y = 300;
                     Character.height = 140;
