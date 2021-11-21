@@ -198,7 +198,6 @@ class JAVA { //C언어 장애물 - 6
 
 
 // 아이템 충돌시 보여질 문제
-"use strict";
 
 function itemQuestion(){
     let question = [
@@ -262,87 +261,87 @@ function itemQuestion(){
     }
     
     if(rand == 1){
-        if(answer == "객체지향" || answer == "객체지향언어") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "객체지향" || answer == "객체지향언어"){ alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 2){
-        if(answer == "final") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "final") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 3){
-        if(answer == "상속") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "상속") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 4){
-        if(answer == "4" || answer == "4byte") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "4" || answer == "4byte") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 5){
-        if(answer == "주석") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "주석") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 6){
         answer = answer.toLowerCase();
-        if(answer == "use strict" || answer == "usestrict") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "use strict" || answer == "usestrict") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 7){
-        if(answer == "let") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "let") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 8){
-        if(answer == "지역변수" || answer == "지역") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "지역변수" || answer == "지역") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 9){
-        if(answer == "전역변수" || answer == "전역") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "전역변수" || answer == "전역") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     }  else if(rand == 10){
         answer = answer.toUpperCase();
-        if(answer == "CSS") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "CSS") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 11){
-        if(answer == "절차지향" || answer == "절차지향언어") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "절차지향" || answer == "절차지향언어") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 12){
-        if(answer == "포인터") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "포인터") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 13){
-        if(answer == "세미콜론" || answer == ";") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "세미콜론" || answer == ";") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 14){
-        if(answer == "예약어") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "예약어") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 15){
         answer = answer.toUpperCase();
-        if(answer == "NULL") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "NULL") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 16){
         answer = answer.toUpperCase();
-        if(answer == "OBJECT") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "OBJECT") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 17){
         answer = answer.toUpperCase();
-        if(answer == "FUNCTION") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "FUNCTION") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 18){
         answer = answer.toUpperCase();
-        if(answer == "NAN") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "NAN") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 19){
         answer = answer.toUpperCase();
-        if(answer == "FALSE") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "FALSE") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 20){
         answer = answer.toUpperCase();
-        if(answer == "COMPILER" || answer == "컴파일러") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "COMPILER" || answer == "컴파일러") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 21){
-        if(answer == "함수오버로딩") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "함수오버로딩") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 22){
-        if(answer == "디폴트매개변수") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "디폴트매개변수") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 23){
         answer = answer.toUpperCase();
-        if(answer == "PRIVATE") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "PRIVATE") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 24){
         answer = answer.toUpperCase();
-        if(answer == "SMARTPOINTER" || answer == "SMART POINTER") alert("정답입니다. 아이템 효과가 발생됩니다.");
-        else alert("오답입니다. 아이템 효과가 발생되지 않습니다.");
+        if(answer == "SMARTPOINTER" || answer == "SMART POINTER") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     }
 }
 
@@ -457,7 +456,10 @@ function collision(Character, obstacle) {
                     o.splice(i, 1);
                 })
                 //코딩 문제 나오는 함수
-                itemQuestion();
+                let answer = itemQuestion();
+                if(answer == "true"){
+                    
+                }
                 break;
 
             case 5 :    //충돌한 것이 coin일 때
@@ -472,7 +474,7 @@ function collision(Character, obstacle) {
                 if(coin.coin_cnt == 10) { //코인의 개수가 10개라면 
                     coin.coin_cnt = 0;  //코인 개수 0개로 초기화
                     //속도 빨라지는 함수 
-                        
+
                 }
                 
                 break;
