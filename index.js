@@ -348,6 +348,7 @@ function itemQuestion(){
 
 
 
+
 let timer = 0;
 let obstacleCount = [];
 let jumpTimer = 0;
