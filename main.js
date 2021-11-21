@@ -2,6 +2,7 @@
 // 캔버스 생성
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
+let CharacterCheck = false;
 
 canvas.width = window.innerWidth - 100;
 canvas.height = window.innerHeight - 100;
@@ -402,8 +403,10 @@ function frameExecution(){
             case 4 : a.x -= 28; break;
 
         }
-
-        collision(Character, a); //캐릭터와 장애물 충돌확인 
+        if(CharacterCheck == false){
+            collision(Character, a); //캐릭터와 장애물 충돌확인 
+        }
+        
         a.draw();
     })
     
@@ -433,6 +436,8 @@ function frameExecution(){
 
 frameExecution();
 
+
+
 //충돌 확인
 function collision(Character, obstacle) {
     let Ob_rx = obstacle.x + obstacle.width; //장애물의 우측 끝 x좌표
@@ -459,20 +464,21 @@ function collision(Character, obstacle) {
                 let answer = itemQuestion();
                 alert(answer);
                 if(answer == true){
+                    
+                    let timerCh = setTimeout(() => {
                     Character.y = 50;
-                    let timerCh = setTimeout(() => 
-                    Character.y = 50,
-                    Character.height = 500,
-                    Character.width = 500,
-                   );
-                
+                    Character.height = 500;
+                    Character.width = 500;
+                    }, );
+
                    let timerSmall = setTimeout(() => {
                     Character.y = 300;
                     Character.height = 140;
                     Character.width = 110;
                    }, 5000);
-                   
+                
                 }
+
                 break;
 
             case 5 :    //충돌한 것이 coin일 때
