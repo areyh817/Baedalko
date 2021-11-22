@@ -256,8 +256,6 @@ function itemQuestion(){
         case 22: answer = prompt(question[21]); break;
         case 23: answer = prompt(question[22]); break;
         case 24: answer = prompt(question[23]); break;
-        case 25: answer = prompt(question[24]); break;
-        case 26: answer = prompt(question[25]); break;
 
     }
     
