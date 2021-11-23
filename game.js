@@ -36,7 +36,9 @@ let Character = { //캐릭터
     y : 100,//300 //100
     width : 110, //80 //980 //110
     height : 140, //80 //980 //130
-    score : 0,
+    score : 0, //플레이어 점수
+    size : false, //플레이어 js 아이템 획득 시 true, false에 따라 충돌
+    item_time : 5, //js, coin 아이템 효력 시간은 모두 5초 
 
     draw1() {
         // ctx.fillStyle = "green";
@@ -199,7 +201,6 @@ class JAVA { //C언어 장애물 - 6
 
 
 // 아이템 충돌시 보여질 문제
-
 function itemQuestion(){
     let question = [
         "[띄어쓰기 금지]\njava는 무슨 언어일까요 ?",
@@ -228,7 +229,7 @@ function itemQuestion(){
         "[띄어쓰기 금지]\nC++ 에서 메모리 누수로부터 프로그램의 안전성을 보장하기 위해 사용이 끝난 메모리를 자동으로 해제하는 기능은? (영어로)"
     ];
     
-    let rand = Math.floor(Math.random() * 27) + 1;
+    let rand = Math.floor(Math.random() * 23) + 1;
     let answer;
     
     switch(rand){
@@ -256,6 +257,8 @@ function itemQuestion(){
         case 22: answer = prompt(question[21]); break;
         case 23: answer = prompt(question[22]); break;
         case 24: answer = prompt(question[23]); break;
+        case 25: answer = prompt(question[24]); break;
+        case 26: answer = prompt(question[25]); break;
 
     }
     
@@ -344,9 +347,6 @@ function itemQuestion(){
     }
 }
 
-
-
-
 let timer = 0;
 let obstacleCount = [];
 let jumpTimer = 0;
@@ -409,7 +409,7 @@ function frameExecution(){
             case 4 : a.x -= 28; break;
 
         }
-        if(CharacterCheck == false){
+        if(Character.size == false){
             collision(Character, a); //캐릭터와 장애물 충돌확인 
         }
         
@@ -425,8 +425,15 @@ function frameExecution(){
     }
 
     if (jumpSwitch == false) {
-        if(Character.y < 437) { //440
-            Character.y += 15;
+        if(Character.size == false) { //
+            if(Character.y < 437) { //437
+                Character.y += 15;
+            }
+        }
+        else if(Character.size == true) {
+            if(Character.y < 180) { //437
+                Character.y += 15;
+            }
         }
     }
 
@@ -434,15 +441,12 @@ function frameExecution(){
         jumpSwitch = false; 
         jumpTimer = 0; 
     }
-
-    
+  
     //setInterval(Character.draw1)
     Character.draw1();
 }
 
 frameExecution();
-
-
 
 //충돌 확인
 function collision(Character, obstacle) {
@@ -453,7 +457,6 @@ function collision(Character, obstacle) {
     let Pl_ry = Character.y + Character.height; //캐릭터의 하단 끝 y좌표 
     
     if(Ob_rx > Character.x && obstacle.x < Pl_rx && Ob_ry > Character.y && obstacle.y < Pl_ry) { //충돌
-        //alert("충돌!");
         switch(obstacle.id) { //장애물 아이디로 장애물 구별
             case 1 : case 2 : case 4 : case 6 : //충돌한 것이 c언어, c++, error, java 일 때
                 alert("장애물과 충돌!!");
@@ -470,18 +473,31 @@ function collision(Character, obstacle) {
                 let answer = itemQuestion();
                 alert(answer);
                 if(answer == true){
-
-                    let timerCh = setTimeout(() => {
-                        
-                    Character.y = -900;
-                    Character.height = 400;
-                    Character.width = 400;
+                    let timerCh = setTimeout(() => { //캐릭터 커지기
+                        Character.y = 50;
+                        Character.height = 400;
+                        Character.width = 400;
+                        Character.size = true;
                     }, );
 
-                   let timerSmall = setTimeout(() => {
-                    Character.y = -300;
+                    let item_time = document.getElementById("item").value = Character.item_time;
+                
+                    function Item_time() {
+                        Character.item_time--;
+                        item_time = document.getElementById("item").value = Character.item_time;
+                    }
+
+                    //1초 간격으로 아이템 효력의 남은 시간을 보여줌
+                    let timerId = setInterval(Item_time, 1000);
+                    //5초 후에 정지
+                    setTimeout(() => {clearInterval(timerId); console.log("정지");}, 5000);
+
+                   let timerSmall = setTimeout(() => { //캐릭터 5초 뒤 작아지기
+                    Character.y = 300;
                     Character.height = 140;
                     Character.width = 110;
+                    Character.size = false;
+                    Character.item_time = 5;
                    }, 5000);
                 
                 }
@@ -504,41 +520,6 @@ function collision(Character, obstacle) {
                 }
                 
                 break;
-
-
-            /*
-            //충돌할 때 어떤 아이템인지 확인하려고 만든 것
-            case 1 : 
-                alert("c!!");
-                //ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
-                //cancelAnimationFrame(animation); //게임 중단
-                break;
-            case 2 : 
-                alert("c++!!");
-                //ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
-                //cancelAnimationFrame(animation); //게임 중단
-                break;
-            case 3 : 
-                alert("js!!");
-                //ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
-                //cancelAnimationFrame(animation); //게임 중단
-                break;
-            case 4 : 
-                alert("error!!");
-                //ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
-                //cancelAnimationFrame(animation); //게임 중단
-                break;
-            case 5 : 
-                alert("coin!!");
-                //ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
-                //cancelAnimationFrame(animation); //게임 중단
-                break;
-            case 6 : 
-                alert("java!!");
-                //ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
-                //cancelAnimationFrame(animation); //게임 중단
-                break;
-            */
         } 
     }
 }
