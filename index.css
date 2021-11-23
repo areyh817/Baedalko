@@ -1,61 +1,84 @@
-*{margin:0; padding: 0;}
-/*#canvas{
-    background-image: url('backgroundimg.png');
-    background-size: cover;
-    height: 100vh;
-}*/
-
-.moving {
-    position:relative;
-    width:100%;height:500px;
-    background:url('background.png') 0 center / 500px repeat-x;
-    animation: movebg 2s linear infinite;
-    background-size : cover ; 
-    height: 100vh;
+body, html { 
+    margin: 0;
+    padding: 0;
 }
 
-@keyframes movebg {
-    0% {background-position:0 center;}
-    100% {background-position:-500px center;}
+.charImg{
+    width: 150px;   
+    margin-top: 245px;
+    margin-left: 30px;
+}
+.jsimg{
+    width: 400px;
+    margin-top: 150px;
+}
+.mainTxt{
+    font-family: 'NeoDunggeunmo';
+    font-size: 130px;
+    color: #be8c1e;
+    text-shadow: -5px 0 white, 0 5px white, 5px 0 white, 0 -5px white;
+}
+.subTxt{
+    font-family: 'NeoDunggeunmo';
+    font-size: 25px;
+    color: #ffffff;
+}
+.startBtn{
+    width:150px;
+    height: 50px;
+    font-family: 'NeoDunggeunmo';
+    font-size: 20px;
+    border-radius: 3px;
+}
+button{
+    cursor: pointer;
+}
+.startBtn:hover{
+    background-color:#dbcba6 ;
+    color: #805701;
 }
 
-/* 달리기에 관련된 소스 */
-.canvas {
-    position:absolute;
-    top:60%;left:50%;
-    transform:translate(-50%,-50%);
-    transition:all 10s;
-    width:20%;
-}
+/* 데스크탑 반응형 (1920*1080) 이상 */
+@media all and (min-width:1920px) {
+    body{
+        background-image: url('/img/backgroundimg.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
 
-.tire-rotate {
-    animation: tire-rotate 1s linear infinite;
-}
-
-@keyframes tire-rotate {
-  0% {transform: rotate(0);}
-  100% {transform: rotate(360deg);}
-}
-
-/* 점수 */
-.ScoreClass {
-    text-align: center;
-    top: 70px;
-}
-
-.moving .ScoreClass .text { 
-    font-size: 22px;
-    margin: auto;
-    margin-left: auto;
-    margin-top: auto;
-}
-
-.moving .ScoreClass .text .score {
-    width : 50px;
-    height: 30px;
-    font-size: 20;
-    background-color: #df7af8;
-    border: 2px solid #575756;
-    color: #000000;
-    text-align: center;
+    .charImg{
+        width: 200px;   
+        margin-top: 380px;
+        margin-left: 30px;
+    }
+    .jsimg{
+        width: 400px;
+        margin-top: 150px;
+    }
+    .mainTxt{
+        font-family: 'NeoDunggeunmo';
+        font-size: 180px;
+        color: #be8c1e;
+        text-shadow: -6px 0 white, 0 6px white, 6px 0 white, 0 -6px white;
+    }
+    .subTxt{
+        font-family: 'NeoDunggeunmo';
+        font-size: 35px;
+        color: #ffffff;
+    }
+    .startBtn{
+        width: 250px;
+        height: 80px;
+        font-family: 'NeoDunggeunmo';
+        font-size: 28px;
+        border-radius: 3px;
+    }
+    button{
+        cursor: pointer;
+    }
+    .startBtn:hover{
+        background-color:#dbcba6 ;
+        color: #805701;
+    }
 }

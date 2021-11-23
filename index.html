@@ -2,22 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--css-->
     <link rel="stylesheet" href="index.css">
-    <title>Document</title>
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+    <!-- Neo둥근모 -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Dalgona/neodgm-webfont@1.510/neodgm/style.css"> 
+    <!-- Neo둥근모 Code --> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Dalgona/neodgm-webfont@1.510/neodgm_code/style.css">
+    <link href="img/icon.ico" rel="shortcut icon">
+    <title>배달코</title>
+    <style>
+        body{
+            background-image: url("background.png");
+            background-size : cover ; 
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+    </style>
 </head>
+<body style="overflow: hidden;">
+    
+    <img src="fgrade/fgrade_1.png" alt="" class = "charImg">
 
-<style>
-</style>
-
-<body style="overflow-x: hidden; overflow-y: hidden;">
-    <div class="moving">
-        <canvas id = "canvas"></canvas>
-        <div class = "ScoreClass">
-            <p class = "text">SCORE : <input id = "score" class = "score" disabled></p>
-        </div>
+    <div style="text-align: center; margin-top: -150px;">
+        <span class = "mainTxt">배달코</span><br>
     </div>
 
-    <!-- <p>점수 : <span id = "score">0</span> <span id = "add_score" class = "add_score"></span></p> -->
-    <script src="index.js"></script>
+    <div style="text-align: center; margin-top: 13px;">
+        <span class = "subTxt">배우면서 달리는 코딩 게임</span><br>
+    </div>
+
+    <div style="text-align: center; margin-top: 50px;">
+        <a href="game.html"><button class = "startBtn">입장하기</button></a>
+        <a href="desc.html" ><button class = "startBtn">게임설명</button></a>
+    </div>
+
 </body>
 </html>

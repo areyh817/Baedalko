@@ -470,15 +470,16 @@ function collision(Character, obstacle) {
                 let answer = itemQuestion();
                 alert(answer);
                 if(answer == true){
-                    
+
                     let timerCh = setTimeout(() => {
-                    Character.y = 50;
-                    Character.height = 500;
-                    Character.width = 500;
+                        
+                    Character.y = -900;
+                    Character.height = 400;
+                    Character.width = 400;
                     }, );
 
                    let timerSmall = setTimeout(() => {
-                    Character.y = 300;
+                    Character.y = -300;
                     Character.height = 140;
                     Character.width = 110;
                    }, 5000);
