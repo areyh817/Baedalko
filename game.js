@@ -505,6 +505,7 @@ function collision(Character, obstacle) {
                 break;
 
             case 5 :    //충돌한 것이 coin일 때
+                let coin = new COIN();
                 alert("COIN 아이템 획득!!");
 
                 alert(`획득한 코인 개수 : ${coincounter1()}`);
@@ -513,12 +514,16 @@ function collision(Character, obstacle) {
                     o.splice(i, 1);
                 })
         
-                if(coin.coin_cnt == 10) { //코인의 개수가 10개라면 
+                if(coin.coin_cnt == 1) { //코인의 개수가 10개라면 
+                    alert("여기에 아주 잘 들어옫나 ~");
                     coin.coin_cnt = 0;  //코인 개수 0개로 초기화
                     //속도 빨라지는 함수 
+                    
+                    let moving = document.getElementById('moving');
+                    moving.innerHTML = "<div class='moving' style = 'animation: movebg 0.5s linear infinite;'><canvas id = 'canvas'></canvas><div class = 'Score_Item_Class'><p class = 'Score_Item'>SCORE : <input id = 'score' class = 'score' disabled> ITEM_TIME : <input id = 'item' class = 'item' disabled></p></div></div>";
+
 
                 }
-                
                 break;
         } 
     }
