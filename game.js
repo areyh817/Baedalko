@@ -1,4 +1,5 @@
 "use strict"
+import userGrade from 'choice.js';
 // 캔버스 생성
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
@@ -8,6 +9,7 @@ canvas.width = window.innerWidth - 100;
 canvas.height = window.innerHeight - 100;
 
 let Fgrade1 = new Image();
+
 
 // 1학년 체육복
 let imgArray1 = new Array();

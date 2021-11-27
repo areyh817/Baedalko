@@ -1,0 +1,8 @@
+button{
+    background-color:transparent;
+    cursor: pointer;
+    border: 0px;
+}
+button:hover{
+    border: 1px solid #ffd400;
+}
