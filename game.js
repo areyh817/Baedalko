@@ -8,106 +8,39 @@ canvas.width = window.innerWidth - 100;
 canvas.height = window.innerHeight - 100;
 
 let Fgrade1 = new Image(); //1학년 체육복 - 1
-Fgrade1.src = 'fgrade/fgrade_1.png';
 
-let Fgrade2 = new Image(); //1학년 체육복 - 2
-Fgrade2.src = 'fgrade/fgrade_2.png';
+let imgArray = new Array();
+imgArray[0] = "fgrade/fgrade_1.png";
+imgArray[1] = "fgrade/fgrade_2.png";
+imgArray[2] = "fgrade/fgrade_3.png";
+imgArray[3] = "fgrade/fgrade_4.png";
+imgArray[4] = "fgrade/fgrade_5.png";
+imgArray[5] = "fgrade/fgrade_6.png";
+imgArray[6] = "fgrade/fgrade_7.png";
+imgArray[7] = "fgrade/fgrade_8.png";
 
-let Fgrade3 = new Image(); //1학년 체육복 - 3
-Fgrade3.src = 'fgrade/fgrade_3.png';
-
-let Fgrade4 = new Image(); //1학년 체육복 - 4
-Fgrade4.src = 'fgrade/fgrade_4.png';
-
-let Fgrade5 = new Image(); //1학년 체육복 - 5
-Fgrade5.src = 'fgrade/fgrade_5.png';
-
-let Fgrade6 = new Image(); //1학년 체육복 - 6
-Fgrade6.src = 'fgrade/fgrade_6.png';
-
-let Fgrade7 = new Image(); //1학년 체육복 - 7
-Fgrade7.src = 'fgrade/fgrade_7.png';
-
-let Fgrade8 = new Image(); //1학년 체육복 - 8
-Fgrade8.src = 'fgrade/fgrade_8.png';
-
-let imgArray = [Fgrade1, Fgrade2, Fgrade3, Fgrade4, Fgrade5, Fgrade6, Fgrade7, Fgrade8];
-
-
-function runImg02(){
-
-    for(let i = 0; i < 7; i++){
-        setTimeout(function() { 
-            Character.imgsrc = imgArray[i];
-        }, 500); //delay 시간
+function showImage(){
+    let imgNum = Math.round(Math.random()*7);
+    Fgrade1 = document.getElementById("introimg");
+    Fgrade1.src = imgArray[imgNum];
+    setTimeout(showImage, 100);
 }
 
-    /*let aa2 = setTimeout(() => { //캐릭터 5초 뒤 작아지기
-    Character.imgsrc = Fgrade4;
-    }, 100);
-    
-    let aa3 = setTimeout(() => { //캐릭터 5초 뒤 작아지기
-        Character.imgsrc = Fgrade5;
-    }, 100);
 
-    let aa4 = setTimeout(() => { //캐릭터 5초 뒤 작아지기
-        Character.imgsrc = Fgrade6;
-    }, 100);
-    let aa5 = setTimeout(() => { //캐릭터 5초 뒤 작아지기
-        Character.imgsrc = Fgrade7;
-    }, 100);
-    let aa6 = setTimeout(() => { //캐릭터 5초 뒤 작아지기
-        Character.imgsrc = Fgrade8;
-    }, 100);*/
-}
-function runImg03(){
-    setTimeout(function() { 
-        Character.imgsrc = Fgrade5;
-    }, 500); //delay 시간
-}
-function runImg04(){
-    setTimeout(() => { //캐릭터 커지기
-        Character.imgsrc = Fgrade4;
-    }, 500);
-}
-function runImg05(){
-    let timerCh = setTimeout(() => { //캐릭터 커지기
-        Character.imgsrc = Fgrade5;
-    }, 500);
-
-}
-function runImg06(){
-    let timerCh = setTimeout(() => { //캐릭터 커지기
-        Character.imgsrc = Fgrade6;
-    }, 500);
-}
-function runImg07(){
-    let timerCh = setTimeout(() => { //캐릭터 커지기
-        Character.imgsrc = Fgrade7;
-    }, 500);
-
-}
 
 let Character = { //캐릭터
     x : 180,
     y : 100,//300 //100
     width : 110, //80 //980 //110
     height : 140, //80 //980 //130
-    imgsrc : Fgrade5,
     score : 0, //플레이어 점수
     size : false, //플레이어 js 아이템 획득 시 true, false에 따라 충돌
     item_time : 5, //js, coin 아이템 효력 시간은 모두 5초 
 
-
     draw1() {
         // ctx.fillStyle = "green";
         // ctx.fillRect(this.x, this.y, this.width, this.height);
-        for(let i = 0; i < 8; i++){
-            this.imgsrc = imgArray[i];
-            ctx.drawImage(this.imgsrc, this.x, this.y, this.width, this.height);
-        }
-
-        // runImg02();
+        ctx.drawImage(Fgrade1, this.x, this.y, this.width, this.height);
 
     },
 
