@@ -42,7 +42,10 @@
     text-align: center;
     top: 70px;
 }
-
+.score_img{
+    width:50px;
+    height:50px;
+}
 .moving .Score_Item_Class .Score_Item { 
     font-size: 22px;
     margin: auto;
