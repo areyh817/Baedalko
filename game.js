@@ -7,25 +7,61 @@ let CharacterCheck = false;
 canvas.width = window.innerWidth - 100;
 canvas.height = window.innerHeight - 100;
 
-let Fgrade1 = new Image(); //1학년 체육복 - 1
+let Fgrade1 = new Image();
 
-let imgArray = new Array();
-imgArray[0] = "fgrade/fgrade_1.png";
-imgArray[1] = "fgrade/fgrade_2.png";
-imgArray[2] = "fgrade/fgrade_3.png";
-imgArray[3] = "fgrade/fgrade_4.png";
-imgArray[4] = "fgrade/fgrade_5.png";
-imgArray[5] = "fgrade/fgrade_6.png";
-imgArray[6] = "fgrade/fgrade_7.png";
-imgArray[7] = "fgrade/fgrade_8.png";
+// 1학년 체육복
+let imgArray1 = new Array();
+imgArray1[0] = "fgrade/fgrade_1.png";
+imgArray1[1] = "fgrade/fgrade_2.png";
+imgArray1[2] = "fgrade/fgrade_3.png";
+imgArray1[3] = "fgrade/fgrade_4.png";
+imgArray1[4] = "fgrade/fgrade_5.png";
+imgArray1[5] = "fgrade/fgrade_6.png";
+imgArray1[6] = "fgrade/fgrade_7.png";
+imgArray1[7] = "fgrade/fgrade_8.png";
 
 function showImage(){
     let imgNum = Math.round(Math.random()*7);
     Fgrade1 = document.getElementById("introimg");
-    Fgrade1.src = imgArray[imgNum];
+    Fgrade1.src = imgArray1[imgNum];
     setTimeout(showImage, 100);
 }
 
+// 2학년 체육복
+/*let imgArray2 = new Array();
+imgArray2[0] = "sgrade/sgrade_1.png";
+imgArray2[1] = "sgrade/sgrade_2.png";
+imgArray2[2] = "sgrade/sgrade_3.png";
+imgArray2[3] = "sgrade/sgrade_4.png";
+imgArray2[4] = "sgrade/sgrade_5.png";
+imgArray2[5] = "sgrade/sgrade_6.png";
+imgArray2[6] = "sgrade/sgrade_7.png";
+imgArray2[7] = "sgrade/sgrade_8.png";
+
+function showImage(){
+    let imgNum = Math.round(Math.random()*7);
+    Fgrade1 = document.getElementById("introimg");
+    Fgrade1.src = imgArray2[imgNum];
+    setTimeout(showImage, 100);
+}*/
+
+// 3학년 체육복
+/*let imgArray3 = new Array();
+imgArray3[0] = "tgrade/tgrade_1.png";
+imgArray3[1] = "tgrade/tgrade_2.png";
+imgArray3[2] = "tgrade/tgrade_3.png";
+imgArray3[3] = "tgrade/tgrade_4.png";
+imgArray3[4] = "tgrade/tgrade_5.png";
+imgArray3[5] = "tgrade/tgrade_6.png";
+imgArray3[6] = "tgrade/tgrade_7.png";
+imgArray3[7] = "tgrade/tgrade_8.png";
+
+function showImage(){
+    let imgNum = Math.round(Math.random()*7);
+    Fgrade1 = document.getElementById("introimg");
+    Fgrade1.src = imgArray3[imgNum];
+    setTimeout(showImage, 100);
+}*/
 
 
 let Character = { //캐릭터
