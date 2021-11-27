@@ -31,19 +31,84 @@ Fgrade7.src = 'fgrade/fgrade_7.png';
 let Fgrade8 = new Image(); //1학년 체육복 - 8
 Fgrade8.src = 'fgrade/fgrade_8.png';
 
+let imgArray = [Fgrade1, Fgrade2, Fgrade3, Fgrade4, Fgrade5, Fgrade6, Fgrade7, Fgrade8];
+
+
+function runImg02(){
+
+    for(let i = 0; i < 7; i++){
+        setTimeout(function() { 
+            Character.imgsrc = imgArray[i];
+        }, 500); //delay 시간
+}
+
+    /*let aa2 = setTimeout(() => { //캐릭터 5초 뒤 작아지기
+    Character.imgsrc = Fgrade4;
+    }, 100);
+    
+    let aa3 = setTimeout(() => { //캐릭터 5초 뒤 작아지기
+        Character.imgsrc = Fgrade5;
+    }, 100);
+
+    let aa4 = setTimeout(() => { //캐릭터 5초 뒤 작아지기
+        Character.imgsrc = Fgrade6;
+    }, 100);
+    let aa5 = setTimeout(() => { //캐릭터 5초 뒤 작아지기
+        Character.imgsrc = Fgrade7;
+    }, 100);
+    let aa6 = setTimeout(() => { //캐릭터 5초 뒤 작아지기
+        Character.imgsrc = Fgrade8;
+    }, 100);*/
+}
+function runImg03(){
+    setTimeout(function() { 
+        Character.imgsrc = Fgrade5;
+    }, 500); //delay 시간
+}
+function runImg04(){
+    setTimeout(() => { //캐릭터 커지기
+        Character.imgsrc = Fgrade4;
+    }, 500);
+}
+function runImg05(){
+    let timerCh = setTimeout(() => { //캐릭터 커지기
+        Character.imgsrc = Fgrade5;
+    }, 500);
+
+}
+function runImg06(){
+    let timerCh = setTimeout(() => { //캐릭터 커지기
+        Character.imgsrc = Fgrade6;
+    }, 500);
+}
+function runImg07(){
+    let timerCh = setTimeout(() => { //캐릭터 커지기
+        Character.imgsrc = Fgrade7;
+    }, 500);
+
+}
+
 let Character = { //캐릭터
     x : 180,
     y : 100,//300 //100
     width : 110, //80 //980 //110
     height : 140, //80 //980 //130
+    imgsrc : Fgrade5,
     score : 0, //플레이어 점수
     size : false, //플레이어 js 아이템 획득 시 true, false에 따라 충돌
     item_time : 5, //js, coin 아이템 효력 시간은 모두 5초 
 
+
     draw1() {
         // ctx.fillStyle = "green";
         // ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.drawImage(Fgrade1, this.x, this.y, this.width, this.height);
+        for(let i = 0; i < 8; i++){
+            this.imgsrc = imgArray[i];
+            ctx.drawImage(this.imgsrc, this.x, this.y, this.width, this.height);
+        }
+
+        // runImg02();
+
     },
 
     draw2() {
@@ -538,3 +603,5 @@ function Jump() {
         }
     })
 }
+
+
