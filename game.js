@@ -594,7 +594,7 @@ function collision(Character, obstacle) {
     }
 }
 
-// 스페이스를 누를 때마다 점프하기
+// 스페이스를 누를 때마다 점프하깅
 var jumpSwitch = false; // 점프를 하는지 안 하는지 체크해주는 거
 function Jump() {
     document.addEventListener('keydown', function(e) {
