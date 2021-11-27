@@ -31,8 +31,8 @@ function showImage(){
 let Character = { //캐릭터
     x : 180,
     y : 100,//300 //100
-    width : 110, //80 //980 //110
-    height : 140, //80 //980 //130
+    width : 130, //80 //980 //110
+    height : 170, //80 //980 //130
     score : 0, //플레이어 점수
     size : false, //플레이어 js 아이템 획득 시 true, false에 따라 충돌
     item_time : 5, //js, coin 아이템 효력 시간은 모두 5초 
