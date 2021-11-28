@@ -371,6 +371,11 @@ let jumpTimer = 0;
 let animation;
 let counter = 0;
 let coinAudio = new Audio('/audio/coin.wav');  
+let jumpAudio = new Audio('/audio/Jump.wav');  
+let pdAudio = new Audio('/audio/Power down.wav');  
+let puAudio = new Audio('/audio/up.wav');  
+let falseAudio = new Audio('/audio/false.wav');  
+let trueAudio = new Audio('/audio/true.wav');  
 
 //코인 개수 함수
 function CoinCounter() {
@@ -493,7 +498,9 @@ function collision(Character, obstacle) {
                 let answer = itemQuestion();
                 alert(answer);
                 if(answer == true){
+                    trueAudio.play();
                     let timerCh = setTimeout(() => { //캐릭터 커지기
+                        puAudio.play();
                         Character.y = 50;
                         Character.height = 400;
                         Character.width = 400;
@@ -513,6 +520,7 @@ function collision(Character, obstacle) {
                     setTimeout(() => {clearInterval(timerId); console.log("정지");}, 5000);
 
                    let timerSmall = setTimeout(() => { //캐릭터 5초 뒤 작아지기
+                    pdAudio.play();
                     Character.y = 300;
                     Character.height = 140;
                     Character.width = 110;
@@ -520,6 +528,8 @@ function collision(Character, obstacle) {
                     Character.item_time = 5;
                    }, 5000);
                 
+                } else {
+                    falseAudio.play();
                 }
 
                 break;
@@ -536,7 +546,7 @@ function collision(Character, obstacle) {
                 })
                 counter++;
                 
-                if(counter == 3) { //코인의 개수가 10개라면
+                if(counter == 10) { //코인의 개수가 10개라면
                     alert("여기에 아주 잘 들어옫나 ~");
                     let moving = document.getElementById('moving');
                     function showImage(){
@@ -577,6 +587,7 @@ function collision(Character, obstacle) {
 var jumpSwitch = false; // 점프를 하는지 안 하는지 체크해주는 거
 function Jump() {
     document.addEventListener('keydown', function(e) {
+        jumpAudio.play();
         if(e.code === 'Space'){
             jumpSwitch = true;
         }
