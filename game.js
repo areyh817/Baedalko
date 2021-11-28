@@ -486,6 +486,7 @@ function collision(Character, obstacle) {
             case 1 : case 2 : case 4 : case 6 : //충돌한 것이 c언어, c++, error, java 일 때
                 alert("장애물과 충돌!!");
                 ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
+                moving.style.animation = "movebg 1000s linear infinite";
                 cancelAnimationFrame(animation); //게임 중단
                 break;
 
