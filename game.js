@@ -1,5 +1,4 @@
 "use strict"
-import userGrade from 'choice.js';
 // 캔버스 생성
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
@@ -29,41 +28,6 @@ function showImage(){
     setTimeout(showImage, 100);
 }
 
-// 2학년 체육복
-/*let imgArray2 = new Array();
-imgArray2[0] = "sgrade/sgrade_1.png";
-imgArray2[1] = "sgrade/sgrade_2.png";
-imgArray2[2] = "sgrade/sgrade_3.png";
-imgArray2[3] = "sgrade/sgrade_4.png";
-imgArray2[4] = "sgrade/sgrade_5.png";
-imgArray2[5] = "sgrade/sgrade_6.png";
-imgArray2[6] = "sgrade/sgrade_7.png";
-imgArray2[7] = "sgrade/sgrade_8.png";
-
-function showImage(){
-    let imgNum = Math.round(Math.random()*7);
-    Fgrade1 = document.getElementById("introimg");
-    Fgrade1.src = imgArray2[imgNum];
-    setTimeout(showImage, 100);
-}*/
-
-// 3학년 체육복
-/*let imgArray3 = new Array();
-imgArray3[0] = "tgrade/tgrade_1.png";
-imgArray3[1] = "tgrade/tgrade_2.png";
-imgArray3[2] = "tgrade/tgrade_3.png";
-imgArray3[3] = "tgrade/tgrade_4.png";
-imgArray3[4] = "tgrade/tgrade_5.png";
-imgArray3[5] = "tgrade/tgrade_6.png";
-imgArray3[6] = "tgrade/tgrade_7.png";
-imgArray3[7] = "tgrade/tgrade_8.png";
-
-function showImage(){
-    let imgNum = Math.round(Math.random()*7);
-    Fgrade1 = document.getElementById("introimg");
-    Fgrade1.src = imgArray3[imgNum];
-    setTimeout(showImage, 100);
-}*/
 
 
 let Character = { //캐릭터
@@ -387,6 +351,7 @@ let timer = 0;
 let obstacleCount = [];
 let jumpTimer = 0;
 let animation;
+let counter = 0;
 
 //코인 개수 함수
 function CoinCounter() {
@@ -539,27 +504,54 @@ function collision(Character, obstacle) {
                 }
 
                 break;
-
+                
             case 5 :    //충돌한 것이 coin일 때
                 let coin = new COIN();
+                counter = 0;
                 alert("COIN 아이템 획득!!");
-
+                counter++;
                 alert(`획득한 코인 개수 : ${coincounter1()}`);
 
                 obstacleCount.forEach((a, i, o) => { //코인 아이템 삭제
                     o.splice(i, 1);
                 })
-        
-                if(coin.coin_cnt == 1) { //코인의 개수가 10개라면 
+                if(counter == 1) { //코인의 개수가 10개라면 
+                    counter = 0;
                     alert("여기에 아주 잘 들어옫나 ~");
-                    coin.coin_cnt = 0;  //코인 개수 0개로 초기화
+                      //코인 개수 0개로 초기화
                     //속도 빨라지는 함수 
                     
                     let moving = document.getElementById('moving');
-                    moving.innerHTML = "<div class='moving' style = 'animation: movebg 0.5s linear infinite;'><canvas id = 'canvas'></canvas><div class = 'Score_Item_Class'><p class = 'Score_Item'>SCORE : <input id = 'score' class = 'score' disabled> ITEM_TIME : <input id = 'item' class = 'item' disabled></p></div></div>";
+                    function showImage(){
+                        let imgNum = Math.round(Math.random()*7);
+                        Fgrade1 = document.getElementById("introimg");
+                        Fgrade1.src = imgArray1[imgNum];
+                        setTimeout(showImage, 50);
+                    }
+                    /*moving.innerHTML = "<div class='moving' style = 'position:relative; width:1920px;animation: movebg 1s linear infinite; '><canvas id = 'canvas'></canvas><img id = 'introimg''style='visibility: hidden;'><div class = 'Score_Item_Class' ><p class = 'Score_Item'>SCORE : <input id = 'score' class = 'score' disabled> ITEM_TIME : <input id = 'item' class = 'item' disabled></p></div></div>";*/
+                    let timerCh = setTimeout(() => { // 배경속도 증가
+                        moving.style.animation = "movebg 1s linear infinite";
+                    }, );
 
+                    let item_time = document.getElementById("item").value = Character.item_time;
+                
+                    function Item_time() {
+                        Character.item_time--;
+                        item_time = document.getElementById("item").value = Character.item_time;
+                    }
+
+                    //1초 간격으로 아이템 효력의 남은 시간을 보여줌
+                    let timerId = setInterval(Item_time, 1000);
+                    //5초 후에 정지
+                    setTimeout(() => {clearInterval(timerId); console.log("정지");}, 5000);
+
+                   let timerSmall = setTimeout(() => { // 다시 느리게
+                    moving.style.animation = "movebg 5s linear infinite";
+                    
+                   }, 5000);
 
                 }
+
                 break;
         } 
     }
