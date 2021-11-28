@@ -370,12 +370,12 @@ let obstacleCount = [];
 let jumpTimer = 0;
 let animation;
 let counter = 0;
-let coinAudio = new Audio('/audio/coin.wav');  
-let jumpAudio = new Audio('/audio/Jump.wav');  
-let pdAudio = new Audio('/audio/Power down.wav');  
-let puAudio = new Audio('/audio/up.wav');  
-let falseAudio = new Audio('/audio/false.wav');  
-let trueAudio = new Audio('/audio/true.wav');  
+let coinAudio = new Audio('audio/coin.wav');  
+let jumpAudio = new Audio('audio/Jump.wav');  
+let pdAudio = new Audio('audio/Power down.wav');  
+let puAudio = new Audio('audio/up.wav');  
+let falseAudio = new Audio('audio/false.wav');  
+let trueAudio = new Audio('audio/true.wav');  
 
 //코인 개수 함수
 function CoinCounter() {

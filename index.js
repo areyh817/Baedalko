@@ -1,6 +1,6 @@
 "use strict";
 
-let opeingAudio = new Audio("/audio/opening.mp3");
+let opeingAudio = new Audio("audio/opening.mp3");
 opeingAudio.play();
 
 function button2_click() {
