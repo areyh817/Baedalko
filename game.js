@@ -101,8 +101,8 @@ if(grade == "third") { //사용자가 선택한 학년이 3학년일 때
 let Character = { //캐릭터
     x : 180,
     y : 100,
-    width : 130, 
-    height : 170, 
+    width : 113, 
+    height : 150, 
     score : 0, //플레이어 점수
     size : false, //플레이어 js 아이템 획득 시 true, false에 따라 충돌
     item_time : 5, //js, coin 아이템 효력 시간은 모두 5초 
@@ -370,6 +370,7 @@ let obstacleCount = [];
 let jumpTimer = 0;
 let animation;
 let counter = 0;
+let score = 0;
 let coinAudio = new Audio('audio/coin.wav');  
 let jumpAudio = new Audio('audio/Jump.wav');  
 let pdAudio = new Audio('audio/Power down.wav');  
@@ -393,7 +394,7 @@ function frameExecution(){
      //alert(`타이머 : ${timer}`); //타이머 확인 문구
      if(timer % 2 == 0) { //짝수 초마다 점수 0.5씩 증가
         Character.score += 1; 
-        let score = document.getElementById("score").value = Character.score; //html 아이디가 score인 곳으로 플레이어 점수 넘겨주기
+        score = document.getElementById("score").value = Character.score; //html 아이디가 score인 곳으로 플레이어 점수 넘겨주기
     }
     //alert(`점수 : ${Character.score}`); //점수 확인문구
   
@@ -486,7 +487,8 @@ function collision(Character, obstacle) {
             case 1 : case 2 : case 4 : case 6 : //충돌한 것이 c언어, c++, error, java 일 때
                 alert("장애물과 충돌!!");
                 ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
-                moving.style.animation = "movebg 1000s linear infinite";
+                moving.style.animation = "movebg 9000s linear infinite";
+                let open = window.open('gameOver.html', '','width=780, height=570, left='+((window.screen.width / 2) - (780 / 2))+', top='+((window.screen.height /2) - (570 / 2))+', screenX='+((window.screen.width / 2) - (780 / 2))+', screenY= '+((window.screen.height /2) - (570 / 2))+'');
                 cancelAnimationFrame(animation); //게임 중단
                 break;
 
