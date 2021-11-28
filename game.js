@@ -352,6 +352,7 @@ let obstacleCount = [];
 let jumpTimer = 0;
 let animation;
 let counter = 0;
+let coinAudio = new Audio('/audio/coin.wav');  
 
 //코인 개수 함수
 function CoinCounter() {
@@ -504,9 +505,11 @@ function collision(Character, obstacle) {
                 }
 
                 break;
-                
+
+      
             case 5 :    //충돌한 것이 coin일 때
                 let coin = new COIN();
+                coinAudio.play();
                 alert("COIN 아이템 획득!!");
                 alert(`획득한 코인 개수 : ${coincounter1()}`);
 
