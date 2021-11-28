@@ -1,8 +1,30 @@
-button{
+.parent {
+    display: flex;
+    margin-top: 100px;
+    /* width: 700px;
+    height : 200px; */
+}
+
+.choice_button {
+    /* //text-align: center;     */
+    margin: auto auto auto auto;
+}
+
+button {
+    text-align: center;
     background-color:transparent;
     cursor: pointer;
-    border: 0px;
+    border: none;
 }
-button:hover{
-    border: 1px solid #ffd400;
+
+#grade01 {
+    border: solid 5px yellow;
+}
+
+#grade02 {
+    border: solid 5px rgb(0, 153, 255);
+}
+
+#grade03 {
+    border: solid 5px pink;
 }

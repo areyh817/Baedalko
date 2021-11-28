@@ -7,85 +7,116 @@ let CharacterCheck = false;
 canvas.width = window.innerWidth - 100;
 canvas.height = window.innerHeight - 100;
 
-let Fgrade1 = new Image();
+let number3 = new Image();    //숫자 3
+number3.src = 'number/number_3.png';
 
+//카운트
+let Number3 = {
+    x : 10,
+    y : 100,
+    width : 200, 
+    height : 200, 
 
-// 1학년 체육복
-let imgArray1 = new Array();
-imgArray1[0] = "fgrade/fgrade_1.png";
-imgArray1[1] = "fgrade/fgrade_2.png";
-imgArray1[2] = "fgrade/fgrade_3.png";
-imgArray1[3] = "fgrade/fgrade_4.png";
-imgArray1[4] = "fgrade/fgrade_5.png";
-imgArray1[5] = "fgrade/fgrade_6.png";
-imgArray1[6] = "fgrade/fgrade_7.png";
-imgArray1[7] = "fgrade/fgrade_8.png";
-
-function showImage(){
-    let imgNum = Math.round(Math.random()*7);
-    Fgrade1 = document.getElementById("introimg");
-    Fgrade1.src = imgArray1[imgNum];
-    setTimeout(showImage, 100);
+    draw() {   
+        ctx.drawImage(number3, this.x, this.y, this.width, this.height);
+    }
 }
 
+Number3.draw();
 
+// let timer1 = setInterval(Number3.Number3_img, 1000);
+// clearInterval(timer1, 2000);
+
+let grade = document.getElementById("grade").value; //사용자가 선택한 학년 가져오기
+
+let Fgrade, Sgrade, Tgrade; //1, 2, 3학년
+let imgArray; //이미지배열
+
+if(grade == "first") { //사용자가 선택한 학년이 1학년일 때
+    Fgrade = new Image(); //1학년 체육복
+
+    imgArray = new Array();
+    imgArray[0] = "fgrade/fgrade_1.png";
+    imgArray[1] = "fgrade/fgrade_2.png";
+    imgArray[2] = "fgrade/fgrade_3.png";
+    imgArray[3] = "fgrade/fgrade_4.png";
+    imgArray[4] = "fgrade/fgrade_5.png";
+    imgArray[5] = "fgrade/fgrade_6.png";
+    imgArray[6] = "fgrade/fgrade_7.png";
+    imgArray[7] = "fgrade/fgrade_8.png";
+    
+    function showImage() { //캐릭터 gif
+        let imgNum = Math.round(Math.random()*7);
+        Fgrade = document.getElementById("introimg");
+        Fgrade.src = imgArray[imgNum];
+        setTimeout(showImage, 100);
+    }
+    showImage();
+}
+
+if(grade == "second") { //사용자가 선택한 학년이 2학년일 때
+    Sgrade = new Image(); //2학년 체육복
+
+    imgArray = new Array();
+    imgArray[0] = "sgrade/sgrade_1.png";
+    imgArray[1] = "sgrade/sgrade_2.png";
+    imgArray[2] = "sgrade/sgrade_3.png";
+    imgArray[3] = "sgrade/sgrade_4.png";
+    imgArray[4] = "sgrade/sgrade_5.png";
+    imgArray[5] = "sgrade/sgrade_6.png";
+    imgArray[6] = "sgrade/sgrade_7.png";
+    imgArray[7] = "sgrade/sgrade_8.png";
+    
+    function showImage() { //캐릭터 gif
+        let imgNum = Math.round(Math.random()*7);
+        Sgrade = document.getElementById("introimg");
+        Sgrade.src = imgArray[imgNum];
+        setTimeout(showImage, 100);
+    }
+    showImage();
+}
+
+if(grade == "third") { //사용자가 선택한 학년이 3학년일 때
+    Tgrade = new Image(); //3학년 체육복
+
+    imgArray = new Array();
+    imgArray[0] = "tgrade/tgrade_1.png";
+    imgArray[1] = "tgrade/tgrade_2.png";
+    imgArray[2] = "tgrade/tgrade_3.png";
+    imgArray[3] = "tgrade/tgrade_4.png";
+    imgArray[4] = "tgrade/tgrade_5.png";
+    imgArray[5] = "tgrade/tgrade_6.png";
+    imgArray[6] = "tgrade/tgrade_7.png";
+    imgArray[7] = "tgrade/tgrade_8.png";
+    
+    function showImage() { //캐릭터 gif
+        let imgNum = Math.round(Math.random()*7);
+        Tgrade = document.getElementById("introimg");
+        Tgrade.src = imgArray[imgNum];
+        setTimeout(showImage, 100);
+    }
+    showImage();
+}
 
 let Character = { //캐릭터
     x : 180,
-    y : 100,//300 //100
-    width : 130, //80 //980 //110
-    height : 170, //80 //980 //130
+    y : 100,
+    width : 130, 
+    height : 170, 
     score : 0, //플레이어 점수
     size : false, //플레이어 js 아이템 획득 시 true, false에 따라 충돌
     item_time : 5, //js, coin 아이템 효력 시간은 모두 5초 
 
-    draw1() {
-        // ctx.fillStyle = "green";
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.drawImage(Fgrade1, this.x, this.y, this.width, this.height);
-
-    },
-
-    draw2() {
-        // ctx.fillStyle = "green";
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.drawImage(Fgrade2, this.x, this.y, this.width, this.height);
-    },
-
-    draw3() {
-        // ctx.fillStyle = "green";
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.drawImage(Fgrade3, this.x, this.y, this.width, this.height);
-    },
-
-    draw4() {
-        // ctx.fillStyle = "green";
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.drawImage(Fgrade4, this.x, this.y, this.width, this.height);
-    },
-
-    draw5() {
-        // ctx.fillStyle = "green";
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.drawImage(Fgrade5, this.x, this.y, this.width, this.height);
-    },
-
-    draw6() {
-        // ctx.fillStyle = "green";
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.drawImage(Fgrade6, this.x, this.y, this.width, this.height);
-    },
-
-    draw7() {
-        // ctx.fillStyle = "green";
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.drawImage(Fgrade7, this.x, this.y, this.width, this.height);
-    },
-
-    draw8() {
-        // ctx.fillStyle = "green";
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.drawImage(Fgrade8, this.x, this.y, this.width, this.height);
+    draw() {
+        if(grade == "first") { //사용자가 선택한 학년이 1학년일 때
+            ctx.drawImage(Fgrade, this.x, this.y, this.width, this.height);
+        }
+        else if(grade == "second") { //2학년일 때
+            ctx.drawImage(Sgrade, this.x, this.y, this.width, this.height);
+        }
+        else if(grade == "third") { //3학년일 때
+            ctx.drawImage(Tgrade, this.x, this.y, this.width, this.height);
+        }
     }
 }
 
@@ -116,8 +147,6 @@ class C { //C언어 장애물 - 1
         this.height = 55;
     }
     draw() {
-        // ctx.fillStyle = "red";
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(c, this.x, this.y, this.width, this.height);
     }
 }
@@ -131,8 +160,6 @@ class CC { //C++ 장애물 - 2
         this.height = 55;
     }
     draw() {
-        // ctx.fillStyle = "red";
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(cc, this.x, this.y, this.width, this.height);
     }
 }
@@ -146,8 +173,6 @@ class JS { //JS 장애물 - 3
         this.height = 55;
     }
     draw() {
-        // ctx.fillStyle = "red";
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(js, this.x, this.y, this.width, this.height);
     }
 }
@@ -161,8 +186,6 @@ class ERROR { //error 장애물 - 4
         this.height = 55;
     }
     draw() {
-        // ctx.fillStyle = "red";
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(error, this.x, this.y, this.width, this.height);
     }
 }
@@ -178,8 +201,6 @@ class COIN { //coin 장애물 - 5
         this.height = 55;
     }
     draw() {
-        // ctx.fillStyle = "red";
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(coin, this.x, this.y, this.width, this.height);
     }
 }
@@ -193,12 +214,9 @@ class JAVA { //C언어 장애물 - 6
         this.height = 55;
     }
     draw() {
-        // ctx.fillStyle = "red";
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(java, this.x, this.y, this.width, this.height);
     }
 }
-
 
 // 아이템 충돌시 보여질 문제
 function itemQuestion(){
@@ -445,7 +463,7 @@ function frameExecution(){
     }
   
     //setInterval(Character.draw1)
-    Character.draw1();
+    Character.draw();
 }
 
 frameExecution();

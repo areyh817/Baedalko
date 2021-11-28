@@ -28,8 +28,14 @@
         </center>
     </div>
 
-    <!-- <p>점수 : <span id = "score">0</span> <span id = "add_score" class = "add_score"></span></p> -->
-
-    <script src="game.js"></script>
+    <div id = "grade"></div>
+    <script language = "javascript">
+        temp = location.href.split("?"); 
+        data=temp[1].split(":");
+        grade = data[0];
+        document.getElementById("grade").value = grade;
+    </script>
+    
+    <script src = "game.js"></script>
 </body>
 </html>
