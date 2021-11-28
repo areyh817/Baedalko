@@ -78,3 +78,88 @@ p{
     color: #e4f500;
     text-align: center;
 }
+
+/* 데스크탑 반응형 (1920*1080) 이상 */
+@media all and (min-width:1920px){
+    *{margin:0; padding: 0;}
+    /*#canvas{
+        background-image: url('backgroundimg.png');
+        background-size: cover;
+        height: 100vh;
+    }*/
+    .moving {
+        position:relative;
+        width:1920px; height: 1200px;
+        background:url('background.png') 0 center / 2220px repeat-x;
+        animation: movebg 5s linear infinite;
+        height: 100vh;
+        background-color:#b78751;
+        
+    }
+
+    @keyframes movebg {
+        0% {background-position:0 center;}
+        100% {background-position:-2220px center;}
+    }
+
+    /* 달리기에 관련된 소스 */
+    .canvas {
+        position:absolute;
+        top:60%;left:50%;
+        transform:translate(-50%,-50%);
+        transition:all 10s;
+        width:20%;
+    }
+
+    .tire-rotate {
+        animation: tire-rotate 1s linear infinite;
+    }
+
+    @keyframes tire-rotate {
+    0% {transform: rotate(0);}
+    100% {transform: rotate(360deg);}
+    }
+
+    /* 점수 */
+    .Score_Item_Class {
+        text-align: center;
+        top: 70px;
+    }
+    .score_img{
+        width:50px;
+        height:50px;
+    }
+    .moving .Score_Item_Class .Score_Item { 
+        font-size: 22px;
+        margin: auto;
+        margin-left: auto;
+        margin-top: auto;
+    }
+
+    .moving .Score_Item_Class .Score_Item .score {
+        width : 50px;
+        height: 30px;
+        font-size: 20;
+        background-color: #e6f14c;
+        border: 2px solid #575756;
+        color: #000000;
+        text-align: center;
+        font-family: 'NeoDunggeunmo';
+    }
+    p{
+        font-family: 'NeoDunggeunmo';
+    }
+    /* 아이템 시간 */
+
+    .moving .Score_Item_Class .Score_Item .item {
+        width : 50px;
+        height: 30px;
+        font-size: 20;
+        background-color: #666466;
+        /*border: 2px solid #e6f14c;*/
+        border-radius: 10px;
+        color: #e4f500;
+        text-align: center;
+    }
+
+}

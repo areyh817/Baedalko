@@ -507,20 +507,16 @@ function collision(Character, obstacle) {
                 
             case 5 :    //충돌한 것이 coin일 때
                 let coin = new COIN();
-                counter = 0;
                 alert("COIN 아이템 획득!!");
-                counter++;
                 alert(`획득한 코인 개수 : ${coincounter1()}`);
 
                 obstacleCount.forEach((a, i, o) => { //코인 아이템 삭제
                     o.splice(i, 1);
                 })
-                if(counter == 1) { //코인의 개수가 10개라면 
-                    counter = 0;
+                counter++;
+                
+                if(counter == 3) { //코인의 개수가 10개라면
                     alert("여기에 아주 잘 들어옫나 ~");
-                      //코인 개수 0개로 초기화
-                    //속도 빨라지는 함수 
-                    
                     let moving = document.getElementById('moving');
                     function showImage(){
                         let imgNum = Math.round(Math.random()*7);
@@ -528,7 +524,7 @@ function collision(Character, obstacle) {
                         Fgrade1.src = imgArray1[imgNum];
                         setTimeout(showImage, 50);
                     }
-                    /*moving.innerHTML = "<div class='moving' style = 'position:relative; width:1920px;animation: movebg 1s linear infinite; '><canvas id = 'canvas'></canvas><img id = 'introimg''style='visibility: hidden;'><div class = 'Score_Item_Class' ><p class = 'Score_Item'>SCORE : <input id = 'score' class = 'score' disabled> ITEM_TIME : <input id = 'item' class = 'item' disabled></p></div></div>";*/
+
                     let timerCh = setTimeout(() => { // 배경속도 증가
                         moving.style.animation = "movebg 1s linear infinite";
                     }, );
@@ -551,7 +547,6 @@ function collision(Character, obstacle) {
                    }, 5000);
 
                 }
-
                 break;
         } 
     }
