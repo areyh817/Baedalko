@@ -202,30 +202,30 @@ class JAVA { //C언어 장애물 - 6
 // 아이템 충돌시 보여질 문제
 function itemQuestion(){
     let question = [
-        "[띄어쓰기 금지]\njava는 무슨 언어일까요 ?",
-        "[띄어쓰기 금지]\nJava의 상수 선언할 때 사용하는 단어는 ?",
-        "[띄어쓰기 금지]\n기존의 클래스에 기능을 추가하거나 재정의 하여 새로운 클래스를 정의 하는 것은 ?",
-        "[띄어쓰기 금지]\nC언어에서 int는 몇 byte인가요 ?",
-        "[띄어쓰기 금지]\n프로그램이 실행하는데 영향을 주지 않는 언어 구성 요소이고\nJava에선 //, /**/ html에서는 <!-->이 기본적이다.",
-        "[띄어쓰기 금지]\njavascript에서 엄격모드를 사용하기 위해 코드 최상단에 쓰는 것은 ?",
-        "[띄어쓰기 금지]\njavascript에서는 예전에는 변수 선언할 때 var를 썼다. 최근들어서 변수를 선언할 때 쓰는 것은 ?",
-        "[띄어쓰기 금지]\n같은 블록내에서 선언한 변수만 사용가능한 변수를 칭하는 것은 ?",
-        "[띄어쓰기 금지]\n블록 밖에서 선언하여 어디서든 다 사용가능한 변수를 칭하는 것은 ?",
-        "[띄어쓰기 금지]\nHTML이나 XML로 작성된 문서의 표시 방법을 기술하기 위한 스타일 시트 언어를 칭하는 것은 ?",
-        "[띄어쓰기 금지]\nC언어는 무슨 언어일까요?",
-        "[띄어쓰기 금지]\n프로그래밍 언어에서 다른 변수, 혹은 그 변수의 메모리 공간 주소를 가리키는 변수를 말하며\n일반적으로 ◯◯◯는 메모리 주소로 바꿀 수 있다. ◯◯◯에 들어갈 말은 ?",
-        "[띄어쓰기 금지]\n◯◯◯◯은 문장의 끝을 의미한다. 자바에서는 문장의 끝에 ◯◯◯◯을 사용하지 않으면 컴파일 에러가 발생한다. ◯◯◯◯에 들어갈 말은 ?",
-        "[띄어쓰기 금지]\n◯◯◯는 이미 문법적인 용도로 사용되고 있기 때문에 식별자로 사용할 수 없는 단어들을 칭한다.\n◯◯◯는 변수로 사용할 수 없으며 Java에서 continue는 ◯◯◯이다.",
-        "[띄어쓰기 금지]\nc나 java언어에서는 '존재하지 않는 객체'에 대한 참조값을 의미하고 자바스크립트에서는 '존재하지 않거나, 비어있거나, 알 수 없는 값'을 나타내는 것은?",
-        "[띄어쓰기 금지]\n자바스크립트에서 typeof null의 값은?",
-        "[띄어쓰기 금지]\n자바스크립트에서 typeof alert의 값은?",
-        "[띄어쓰기 금지]\n자바스크립트에서 undefined를 숫자로 변환한 값은?",
-        "[띄어쓰기 금지]\n자바스크립트에서 null===undefined의 값은?",
-        "[띄어쓰기 금지]\n문자로 이루어진 코드를 기계어로 변환하는 장치는?",
-        "[띄어쓰기 금지]\nC++ 에서 여러 함수가 이름을 공유하는 것은?",
-        "[띄어쓰기 금지]\nC++ 에서는 함수를 선언할 때 매개 변수에 초기값을 지정할 수 있다. 기본 인자로 설정된 변수는?",
-        "[띄어쓰기 금지]\n외부에서는 객체의 멤버 접근을 금지하는 키워드는?",
-        "[띄어쓰기 금지]\nC++ 에서 메모리 누수로부터 프로그램의 안전성을 보장하기 위해 사용이 끝난 메모리를 자동으로 해제하는 기능은? (영어로)"
+        "java는 무슨 언어일까요 ?",
+        "Java의 상수 선언할 때 사용하는 단어는 ?",
+        "기존의 클래스에 기능을 추가하거나 재정의 하여 새로운 클래스를 정의 하는 것은 ?",
+        "C언어에서 int는 몇 byte인가요 ?",
+        "프로그램이 실행하는데 영향을 주지 않는 언어 구성 요소이고\nJava에선 //, /**/ html에서는 <!-->이 기본적이다.",
+        "javascript에서 엄격모드를 사용하기 위해 코드 최상단에 쓰는 것은 ?",
+        "javascript에서는 예전에는 변수 선언할 때 var를 썼다. 최근들어서 변수를 선언할 때 쓰는 것은 ?",
+        "같은 블록내에서 선언한 변수만 사용가능한 변수를 칭하는 것은 ?",
+        "블록 밖에서 선언하여 어디서든 다 사용가능한 변수를 칭하는 것은 ?",
+        "HTML이나 XML로 작성된 문서의 표시 방법을 기술하기 위한 스타일 시트 언어를 칭하는 것은 ?",
+        "C언어는 무슨 언어일까요?",
+        "프로그래밍 언어에서 다른 변수, 혹은 그 변수의 메모리 공간 주소를 가리키는 변수를 말하며\n일반적으로 ◯◯◯는 메모리 주소로 바꿀 수 있다. ◯◯◯에 들어갈 말은 ?",
+        "◯◯◯◯은 문장의 끝을 의미한다. 자바에서는 문장의 끝에 ◯◯◯◯을 사용하지 않으면 컴파일 에러가 발생한다. ◯◯◯◯에 들어갈 말은 ?",
+        "◯◯◯는 이미 문법적인 용도로 사용되고 있기 때문에 식별자로 사용할 수 없는 단어들을 칭한다.\n◯◯◯는 변수로 사용할 수 없으며 Java에서 continue는 ◯◯◯이다.",
+        "c나 java언어에서는 '존재하지 않는 객체'에 대한 참조값을 의미하고 자바스크립트에서는 '존재하지 않거나, 비어있거나, 알 수 없는 값'을 나타내는 것은?",
+        "자바스크립트에서 typeof null의 값은?",
+        "자바스크립트에서 typeof alert의 값은?",
+        "자바스크립트에서 undefined를 숫자로 변환한 값은?",
+        "자바스크립트에서 null===undefined의 값은?",
+        "문자로 이루어진 코드를 기계어로 변환하는 장치는?",
+        "C++ 에서 여러 함수가 이름을 공유하는 것은?",
+        "C++ 에서는 함수를 선언할 때 매개 변수에 초기값을 지정할 수 있다. 기본 인자로 설정된 변수는?",
+        "외부에서는 객체의 멤버 접근을 금지하는 키워드는?",
+        "C++ 에서 메모리 누수로부터 프로그램의 안전성을 보장하기 위해 사용이 끝난 메모리를 자동으로 해제하는 기능은? (영어로)"
     ];
     
     let rand = Math.floor(Math.random() * 23) + 1;
@@ -262,7 +262,7 @@ function itemQuestion(){
     }
     
     if(rand == 1){
-        if(answer == "객체지향" || answer == "객체지향언어"){ alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        if(answer == "객체지향" || answer == "객체지향언어" || answer == "객체 지향 언어"){ alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
         else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 2){
         if(answer == "final") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
@@ -284,20 +284,21 @@ function itemQuestion(){
         if(answer == "let") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
         else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 8){
-        if(answer == "지역변수" || answer == "지역") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        if(answer == "지역변수" || answer == "지역" || answer == "지역 변수") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
         else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 9){
-        if(answer == "전역변수" || answer == "전역") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        if(answer == "전역변수" || answer == "전역" || answer == "전역 변수") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
         else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     }  else if(rand == 10){
         answer = answer.toUpperCase();
         if(answer == "CSS") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
         else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 11){
-        if(answer == "절차지향" || answer == "절차지향언어") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        if(answer == "절차지향" || answer == "절차지향언어" || answer == "절차 지향 언어") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
         else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 12){
-        if(answer == "포인터") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        answer = answer.toUpperCase();
+        if(answer == "포인터" || answer == "POINTER") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
         else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 13){
         if(answer == "세미콜론" || answer == ";") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
@@ -330,10 +331,10 @@ function itemQuestion(){
         if(answer == "COMPILER" || answer == "컴파일러") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
         else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 21){
-        if(answer == "함수오버로딩") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        if(answer == "함수오버로딩" || answer == "함수 오버로딩") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
         else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 22){
-        if(answer == "디폴트매개변수") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
+        if(answer == "디폴트매개변수" || answer == "디폴트 매개변수" || answer == "디폴트 매개 변수") { alert("정답입니다. 아이템 효과가 발생됩니다."); return true; } 
         else {alert("오답입니다. 아이템 효과가 발생되지 않습니다."); return false; }
     } else if(rand == 23){
         answer = answer.toUpperCase();
@@ -366,6 +367,9 @@ function CoinCounter() {
     }
 }
 let coincounter1 = CoinCounter();
+
+// let pscore = document.querySelector("#player_score").value = Character.score;
+// alert(pscore);
 
 function frameExecution(){
     animation = requestAnimationFrame(frameExecution);
@@ -477,9 +481,10 @@ function collision(Character, obstacle) {
                 alert("장애물과 충돌!!");
                 ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
                 moving.style.animation = "movebg 9000s linear infinite";
-                /*let childOpenWindow = window.open('gameOver.html', '','width=780, height=570, left='+((window.screen.width / 2) - (780 / 2))+', top='+((window.screen.height /2) - (570 / 2))+', screenX='+((window.screen.width / 2) - (780 / 2))+', screenY= '+((window.screen.height /2) - (570 / 2))+'');*/
-                alert(Character.score+"점");
-                document.body.innerHTML = "<meta http-equiv='refresh' content='0.5;url=gameOver.html'>";
+                let position = "student";
+                location.href = "gameOver.html?" + Character.score + ":" + position;
+                //document.getElementById("player_score") = Character.score;
+                //let open = window.open('gameOver.html', '','width=780, height=570, left='+((window.screen.width / 2) - (780 / 2))+', top='+((window.screen.height /2) - (570 / 2))+', screenX='+((window.screen.width / 2) - (780 / 2))+', screenY= '+((window.screen.height /2) - (570 / 2))+'');
                 cancelAnimationFrame(animation); //게임 중단
                 break;
 
@@ -539,7 +544,7 @@ function collision(Character, obstacle) {
                     o.splice(i, 1);
                 })
                 
-                if(coin_cnt == 5) { //코인의 개수가 5개라면
+                if(coin_cnt == 3) { //코인의 개수가 3개라면
                     // alert("여기에 아주 잘 들어옫나 ~");
                     let moving = document.getElementById('moving');
               
