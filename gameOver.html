@@ -38,5 +38,13 @@
     <div style="text-align: center; margin-top: 150px;">
         <a href="gradeChoice.html"><button class = "startBtn" id = "start" onclick="button2_click()">다시하기</button></a>
     </div>
+
+    <script src="game.js"></script>
+    <script language = "javascript">
+        temp = location.href.split("?"); 
+        data=temp[1].split(":");
+        score_play = data[0];
+        document.getElementById("player_score").value = Character.score;
+    </script>
 </body>
 </html>

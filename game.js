@@ -477,8 +477,9 @@ function collision(Character, obstacle) {
                 alert("장애물과 충돌!!");
                 ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
                 moving.style.animation = "movebg 9000s linear infinite";
-                //document.getElementById("score") = Character.score;
-                let open = window.open('gameOver.html', '','width=780, height=570, left='+((window.screen.width / 2) - (780 / 2))+', top='+((window.screen.height /2) - (570 / 2))+', screenX='+((window.screen.width / 2) - (780 / 2))+', screenY= '+((window.screen.height /2) - (570 / 2))+'');
+                /*let childOpenWindow = window.open('gameOver.html', '','width=780, height=570, left='+((window.screen.width / 2) - (780 / 2))+', top='+((window.screen.height /2) - (570 / 2))+', screenX='+((window.screen.width / 2) - (780 / 2))+', screenY= '+((window.screen.height /2) - (570 / 2))+'');*/
+                alert(Character.score+"점");
+                document.body.innerHTML = "<meta http-equiv='refresh' content='0.5;url=gameOver.html'>";
                 cancelAnimationFrame(animation); //게임 중단
                 break;
 
