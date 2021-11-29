@@ -7,26 +7,6 @@ let CharacterCheck = false;
 canvas.width = window.innerWidth - 100;
 canvas.height = window.innerHeight - 100;
 
-let number3 = new Image();    //숫자 3
-number3.src = 'number/number_3.png';
-
-//카운트
-let Number3 = {
-    x : 10,
-    y : 100,
-    width : 200, 
-    height : 200, 
-
-    draw() {   
-        ctx.drawImage(number3, this.x, this.y, this.width, this.height);
-    }
-}
-
-Number3.draw();
-
-// let timer1 = setInterval(Number3.Number3_img, 1000);
-// clearInterval(timer1, 2000);
-
 let grade = document.getElementById("grade").value; //사용자가 선택한 학년 가져오기
 
 let Fgrade, Sgrade, Tgrade; //1, 2, 3학년
@@ -101,11 +81,12 @@ if(grade == "third") { //사용자가 선택한 학년이 3학년일 때
 let Character = { //캐릭터
     x : 180,
     y : 100,
-    width : 113, 
-    height : 150, 
+    width : 170, 
+    height : 210, 
     score : 0, //플레이어 점수
     size : false, //플레이어 js 아이템 획득 시 true, false에 따라 충돌
     item_time : 5, //js, coin 아이템 효력 시간은 모두 5초 
+    speed : false,  //캐릭터 속도
 
     draw() {
         if(grade == "first") { //사용자가 선택한 학년이 1학년일 때
@@ -369,18 +350,17 @@ let timer = 0;
 let obstacleCount = [];
 let jumpTimer = 0;
 let animation;
-let counter = 0;
-let score = 0;
-let coinAudio = new Audio('audio/coin.wav');  
-let jumpAudio = new Audio('audio/Jump.wav');  
-let pdAudio = new Audio('audio/Power down.wav');  
-let puAudio = new Audio('audio/up.wav');  
-let falseAudio = new Audio('audio/false.wav');  
-let trueAudio = new Audio('audio/true.wav');  
+let coin_cnt = 0; //코인 개수 체크
+let score = 0; //사용자의 점수
+let coinAudio = new Audio('audio/coin.wav');  //코인 획득 시
+let jumpAudio = new Audio('audio/Jump.wav');   //점프 시
+let pdAudio = new Audio('audio/Power down.wav');  //사이즈 줄어들 시
+let puAudio = new Audio('audio/up.wav');  //사이즈 커질 시
+let falseAudio = new Audio('audio/false.wav');  //오답 시 
+let trueAudio = new Audio('audio/true.wav');   //정답 시
 
 //코인 개수 함수
 function CoinCounter() {
-    let coin_cnt = 0;
     return function() {
         return ++coin_cnt;
     }
@@ -394,7 +374,7 @@ function frameExecution(){
      //alert(`타이머 : ${timer}`); //타이머 확인 문구
      if(timer % 2 == 0) { //짝수 초마다 점수 0.5씩 증가
         Character.score += 1; 
-        score = document.getElementById("score").value = Character.score; //html 아이디가 score인 곳으로 플레이어 점수 넘겨주기
+        document.getElementById("score").value = Character.score; //html 아이디가 score인 곳으로 플레이어 점수 넘겨주기
     }
     //alert(`점수 : ${Character.score}`); //점수 확인문구
   
@@ -435,7 +415,7 @@ function frameExecution(){
             case 4 : a.x -= 28; break;
 
         }
-        if(Character.size == false){
+        if(Character.size == false && Character.speed == false) { //캐릭터 사이즈가 정상이고 스피드가 빠르지 않을 때
             collision(Character, a); //캐릭터와 장애물 충돌확인 
         }
         
@@ -443,20 +423,30 @@ function frameExecution(){
     })
     
     // 점프
-    //setInterval(Jump(), 1000);
     Jump();
     if (jumpSwitch == true) {
-        Character.y -= 9;
+        if(Character.size == false) { //캐릭터 원래 사이즈일 때
+            if(Character.y > 260) { //260
+                Character.y -= 17;   
+            }
+        }
+
+        if(Character.size == true) { //캐릭터 커졌을 때
+            if(Character.y > 50) {
+                Character.y -= 14;
+            }
+        }
+       
         jumpTimer++;
     }
 
     if (jumpSwitch == false) {
-        if(Character.size == false) { //
-            if(Character.y < 437) { //437
+        if(Character.size == false) { //캐릭터 원래 사이즈일 때
+            if(Character.y < 385) { //437
                 Character.y += 15;
             }
         }
-        else if(Character.size == true) {
+        else if(Character.size == true) { //캐릭터 사이즈 커졌을 때
             if(Character.y < 180) { //437
                 Character.y += 15;
             }
@@ -467,8 +457,7 @@ function frameExecution(){
         jumpSwitch = false; 
         jumpTimer = 0; 
     }
-  
-    //setInterval(Character.draw1)
+
     Character.draw();
 }
 
@@ -488,6 +477,7 @@ function collision(Character, obstacle) {
                 alert("장애물과 충돌!!");
                 ctx.clearRect(0, 0, canvas.width, canvas.height); //캔버스 클리어
                 moving.style.animation = "movebg 9000s linear infinite";
+                //document.getElementById("score") = Character.score;
                 let open = window.open('gameOver.html', '','width=780, height=570, left='+((window.screen.width / 2) - (780 / 2))+', top='+((window.screen.height /2) - (570 / 2))+', screenX='+((window.screen.width / 2) - (780 / 2))+', screenY= '+((window.screen.height /2) - (570 / 2))+'');
                 cancelAnimationFrame(animation); //게임 중단
                 break;
@@ -510,11 +500,11 @@ function collision(Character, obstacle) {
                         Character.size = true;
                     }, );
 
-                    let item_time = document.getElementById("item").value = Character.item_time;
+                    document.getElementById("item").value = Character.item_time;
                 
                     function Item_time() {
                         Character.item_time--;
-                        item_time = document.getElementById("item").value = Character.item_time;
+                        document.getElementById("item").value = Character.item_time;
                     }
 
                     //1초 간격으로 아이템 효력의 남은 시간을 보여줌
@@ -524,9 +514,9 @@ function collision(Character, obstacle) {
 
                    let timerSmall = setTimeout(() => { //캐릭터 5초 뒤 작아지기
                     pdAudio.play();
-                    Character.y = 300;
-                    Character.height = 140;
-                    Character.width = 110;
+                    Character.y = 100;
+                    Character.height = 210;
+                    Character.width = 170;
                     Character.size = false;
                     Character.item_time = 5;
                    }, 5000);
@@ -539,7 +529,7 @@ function collision(Character, obstacle) {
 
       
             case 5 :    //충돌한 것이 coin일 때
-                let coin = new COIN();
+                //let coin = new COIN();
                 coinAudio.play();
                 alert("COIN 아이템 획득!!");
                 alert(`획득한 코인 개수 : ${coincounter1()}`);
@@ -547,27 +537,23 @@ function collision(Character, obstacle) {
                 obstacleCount.forEach((a, i, o) => { //코인 아이템 삭제
                     o.splice(i, 1);
                 })
-                counter++;
                 
-                if(counter == 10) { //코인의 개수가 10개라면
-                    alert("여기에 아주 잘 들어옫나 ~");
+                if(coin_cnt == 5) { //코인의 개수가 5개라면
+                    // alert("여기에 아주 잘 들어옫나 ~");
                     let moving = document.getElementById('moving');
-                    function showImage(){
-                        let imgNum = Math.round(Math.random()*7);
-                        Fgrade1 = document.getElementById("introimg");
-                        Fgrade1.src = imgArray1[imgNum];
-                        setTimeout(showImage, 50);
-                    }
+              
+                    coin_cnt = 0;   //코인 초기화
 
                     let timerCh = setTimeout(() => { // 배경속도 증가
                         moving.style.animation = "movebg 1s linear infinite";
+                        Character.speed = true;
                     }, );
 
-                    let item_time = document.getElementById("item").value = Character.item_time;
+                    document.getElementById("item").value = Character.item_time;
                 
                     function Item_time() {
                         Character.item_time--;
-                        item_time = document.getElementById("item").value = Character.item_time;
+                        document.getElementById("item").value = Character.item_time;
                     }
 
                     //1초 간격으로 아이템 효력의 남은 시간을 보여줌
@@ -575,10 +561,10 @@ function collision(Character, obstacle) {
                     //5초 후에 정지
                     setTimeout(() => {clearInterval(timerId); console.log("정지");}, 5000);
 
-                   let timerSmall = setTimeout(() => { // 다시 느리게
-                    moving.style.animation = "movebg 5s linear infinite";
-                    
-                   }, 5000);
+                    let timerSmall = setTimeout(() => { // 다시 느리게
+                        moving.style.animation = "movebg 5s linear infinite";
+                        Character.speed = false;
+                    }, 5000);
 
                 }
                 break;
@@ -596,5 +582,3 @@ function Jump() {
         }
     })
 }
-
-

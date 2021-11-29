@@ -12,12 +12,31 @@
     <title>배달코</title>
 </head>
 <body>
+    <script>
+        //alert("하하");
+        // $(document).ready(function() {
+        //     alert("하하2");
+        //     $("#player_score").load("game.html", function() {
+        //         alert("하하3");
+        //         let score = document.getElementById("p_score");
+        //         alert("하하4");
+        //         alert(score);
+        //     });
+        // })   
+        document.getElementById("player_score") = hello;  
+          
+    </script>
     <div style="text-align: center; margin-top:160px;">
+
+        <!-- String fileUrl = "game.html"; 
+        document doc = Jsoup.connect(fileUrl).get();
+        Elements hello = doc.select("#score"); -->
+
         <span class = "gameoverTitle">GAME OVER</span>
+        <p name = "Score">SCORE : <input id = "player_score" class = "player_score" disabled></p>    
     </div>
     <div style="text-align: center; margin-top: 150px;">
         <a href="gradeChoice.html"><button class = "startBtn" id = "start" onclick="button2_click()">다시하기</button></a>
     </div>
-
 </body>
 </html>

@@ -1,5 +1,5 @@
 body{
-    background-color:#e7b341;
+    background-color:#ffdb8c;
 }
 .parent {
     display: flex;
@@ -37,4 +37,5 @@ button:hover {
     font-family: 'NeoDunggeunmo';
     font-size: 18px;
     color: #fff;
+    /* text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; */
 }

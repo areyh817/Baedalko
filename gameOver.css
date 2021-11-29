@@ -3,6 +3,7 @@ body{
 }
 .gameoverTitle{
     font-family: 'NeoDunggeunmo';
+    text-align: center;
     font-size : 70px;
     color: rgb(255, 57, 43);
     text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
