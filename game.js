@@ -367,21 +367,14 @@ function CoinCounter() {
     }
 }
 let coincounter1 = CoinCounter();
-
-// let pscore = document.querySelector("#player_score").value = Character.score;
-// alert(pscore);
-
 function frameExecution(){
     animation = requestAnimationFrame(frameExecution);
     timer++;
 
-     //alert(`타이머 : ${timer}`); //타이머 확인 문구
      if(timer % 2 == 0) { //짝수 초마다 점수 0.5씩 증가
         Character.score += 1; 
         document.getElementById("score").value = Character.score; //html 아이디가 score인 곳으로 플레이어 점수 넘겨주기
     }
-    //alert(`점수 : ${Character.score}`); //점수 확인문구
-  
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     if(timer % 60 === 0) {
@@ -483,8 +476,7 @@ function collision(Character, obstacle) {
                 moving.style.animation = "movebg 9000s linear infinite";
                 let position = "student";
                 location.href = "gameOver.html?" + Character.score + ":" + position;
-                //document.getElementById("player_score") = Character.score;
-                //let open = window.open('gameOver.html', '','width=780, height=570, left='+((window.screen.width / 2) - (780 / 2))+', top='+((window.screen.height /2) - (570 / 2))+', screenX='+((window.screen.width / 2) - (780 / 2))+', screenY= '+((window.screen.height /2) - (570 / 2))+'');
+
                 cancelAnimationFrame(animation); //게임 중단
                 break;
 
@@ -495,7 +487,6 @@ function collision(Character, obstacle) {
                 })
                 //코딩 문제 나오는 함수
                 let answer = itemQuestion();
-                alert(answer);
                 if(answer == true){
                     trueAudio.play();
                     let timerCh = setTimeout(() => { //캐릭터 커지기
@@ -535,7 +526,6 @@ function collision(Character, obstacle) {
 
       
             case 5 :    //충돌한 것이 coin일 때
-                //let coin = new COIN();
                 coinAudio.play();
                 alert("COIN 아이템 획득!!");
                 alert(`획득한 코인 개수 : ${coincounter1()}`);
@@ -545,7 +535,6 @@ function collision(Character, obstacle) {
                 })
                 
                 if(coin_cnt == 3) { //코인의 개수가 3개라면
-                    // alert("여기에 아주 잘 들어옫나 ~");
                     let moving = document.getElementById('moving');
               
                     coin_cnt = 0;   //코인 초기화
