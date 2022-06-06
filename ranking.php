@@ -10,10 +10,10 @@ if ( mysqli_connect_errno() ){echo "DB 연결에 실패했습니다 " . mysqli_
 // 쿼리가 제대로 실행되었는지 확인
 
 // html로부터 값 가져오기
-$name = $_POST["name"];
+$name = $_POST["username"];
 $score = $_POST["score"];
 
-if ( !mysqli_query ($conn,"insert into game(name, socre) values('$name','$score')") ){echo("쿼리오류 발생: " . mysqli_error($conn));}
+if ( !mysqli_query ($conn,"insert into game(name, score) values('$name','$score')") ){echo("쿼리오류 발생: " . mysqli_error($conn));}
 
 
 
