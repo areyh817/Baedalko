@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <!-- Neo둥근모 -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Dalgona/neodgm-webfont@1.510/neodgm/style.css"> 
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Dalgona/neodgm-webfont@1.510/neodgm/style.css">  -->
     <!-- Neo둥근모 Code --> 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Dalgona/neodgm-webfont@1.510/neodgm_code/style.css">
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Dalgona/neodgm-webfont@1.510/neodgm_code/style.css"> -->
+    
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    
     <link href="icon.ico" rel="shortcut icon">
     <link href="icon.ico" rel="shortcut icon">
     <link rel="stylesheet" href="subjectChoice.css">
@@ -18,43 +24,46 @@
         <span class = "info_subject">과목 선택</span>
     </div>
     <div style="text-align: center; margin-top:15px;">
-        <span class = "info_choice">문제를 풀 과목을 선택해주세요.<br>선택한 과목으로 게임을 진행하게 됩니다.</span>
-    </div>
-
-    <div class = "choicebox">
-        <a href=".html" ><button class = "startBtn" id = "subject_c" onclick="button1_click()">C언어</button></a>
-        <a href=".html" ><button class = "startBtn" id = "subject_java" onclick="button1_click()">Java</button></a>
-        <a href=".html" ><button class = "startBtn" id = "subject_js" onclick="button1_click()">자바스크립트</button></a>
-        <a href=".html" ><button class = "startBtn" id = "subject_ds" onclick="button1_click()">자료구조</button></a>
+        <span class = "info_choice">문제를 풀 과목을 선택해주세요.<br>선택한 분야로 게임을 진행하게 됩니다.</span>
     </div>
 
     
-    <script>
-        subject_c.onclick = function() {
-            alert("아직 오픈 전이에요!");
-            /*let grade1 = "first";
-            let position = "student";
-            window.open('game.html?'+grade1+":"+position);*/
-        }
+    
+    <div class = "choicebox">
+        <button class = "startBtn" id = "subject_c" onclick="btn_click()">C언어</button>
+        <button class = "startBtn" id = "subject_java" onclick="btn_click()">Java</button>
+        <button class = "startBtn" id = "subject_js" onclick="btn_click()">자바스크립트</button>
+        <button class = "startBtn" id = "subject_ds" onclick="btn_click()">자료구조</button>
+        <audio id="audio" src="audio/btnclick.mp3"></audio>
+    </div>
 
-        subject_java.onclick = function() {
-            alert("아직 오픈 전이에요!");
-            /*let grade2 = "second";
-            let position = "student";
-            window.open('game.html?'+grade2+":"+position);*/
-        }
+    <script src="main.js"></script>
 
-        subejct_js.onclick = function() {
-            let js = "js";
-            let position = "student";
-            window.open('game.html?'+js+":"+position);
-        }
+    <script type="text/javascript"> 
+        let c = "c";
+        let java = "java";
+        let js = "js";
+        let ds = "ds";
 
-        subejct_ds.onclick = function() {
-            let ds = "ds";
-            let position = "student";
-            window.open('game.html?'+ds+":"+position);
-        }
+        let subject_c = document.getElementById('subject_c');
+        subject_c.addEventListener('click', () => {
+            location.href = `game_subway/subway.html?${c}`;
+        });
+
+        let subject_java = document.getElementById('subject_java');
+        subject_java.addEventListener('click', () => {
+            location.href = `game_subway/subway.html?${java}`;
+        });
+
+        let subject_js = document.getElementById('subject_js');
+        subject_js.addEventListener('click', () => {
+            location.href = `game_subway/subway.html?${js}`;
+        });
+
+        let subject_ds = document.getElementById('subject_ds');
+        subject_ds.addEventListener('click', () => {
+            location.href = `game_subway/subway.html?${ds}`;
+        });
     </script>
 </body>
 </html>
