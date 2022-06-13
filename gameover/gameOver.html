@@ -1,16 +1,24 @@
+<!--게임 오버-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="gameOver.css">
+    <link rel="stylesheet" href="/gameover/gameOver.css">
     <!-- Neo둥근모 -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Dalgona/neodgm-webfont@1.510/neodgm/style.css"> 
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Dalgona/neodgm-webfont@1.510/neodgm/style.css">  -->
     <!-- Neo둥근모 Code --> 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Dalgona/neodgm-webfont@1.510/neodgm_code/style.css">
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Dalgona/neodgm-webfont@1.510/neodgm_code/style.css"> -->
+    
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+
     <link href="icon.ico" rel="shortcut icon">
     <link href="icon.ico" rel="shortcut icon">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <title>배달코</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
     <div style="text-align: center; margin-top:160px;">
@@ -42,7 +50,7 @@
             score = data[0];
             document.getElementById("score").value = score;
          }
-/*
+        /*
         temp = location.href.split("?"); 
         data=temp[1].split(":");
         score = data[0];
