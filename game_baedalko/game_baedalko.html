@@ -1,0 +1,47 @@
+<!--점수와 아이템 남은 시간-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/game_baedalko/game_baedalko.css">
+    <!-- Neo둥근모 -->
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Dalgona/neodgm-webfont@1.510/neodgm/style.css">  -->
+    <!-- Neo둥근모 Code --> 
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Dalgona/neodgm-webfont@1.510/neodgm_code/style.css"> -->
+    
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    
+    <link href="icon.ico" rel="shortcut icon">
+    <!-- <link href="icon.ico" rel="shortcut icon"> -->
+    <title>배달코</title>
+</head>
+
+<style>
+</style>
+
+<body style="overflow-x: hidden; overflow-y: hidden;" onload="showImage()">
+    <div class="moving" id="moving">
+        <!-- 캔버스 -->
+        <canvas id = "canvas" width = "1702px" height = "680px" style="border: 1px solid red"></canvas>
+        <img src="" alt="" id = "introimg" style="visibility: hidden;">
+        <center>
+         <!-- 제한 시간 -->
+        <div class = "Time_Class">
+            <p class = "Time">남은 시간 : <input id = "timer" type = "text" disabled></p>
+        </div>
+    </div>
+
+    <!-- <div id = "grade"></div>
+    <script language = "javascript">
+        temp = location.href.split("?"); 
+        data=temp[1].split(":");
+        grade = data[0];
+        document.getElementById("grade").value = grade;
+    </script> -->
+    
+    <script src = "/game_baedalko/game_baedalko.js"></script>
+</body>
+</html>
