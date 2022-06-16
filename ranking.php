@@ -13,7 +13,7 @@ if ( mysqli_connect_errno() ){echo "DB 연결에 실패했습니다 " . mysqli_
 $name = $_POST["username"];
 $score = $_POST["score"];
 
-if ( !mysqli_query ($conn,"insert into game(name, score) values('$name','$score')") ){echo("쿼리오류 발생: " . mysqli_error($conn));}
+if ( !mysqli_query ($conn,"insert into game(name, socre) values('$name','$score')") ){echo("쿼리오류 발생: " . mysqli_error($conn));}
 
 
 
