@@ -1,6 +1,6 @@
 <?php
 $url = "localhost";
-$id = "baedalko";
+$id = "root";
 $password="111111";
 $db = "bdk_db";
 
