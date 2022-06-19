@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+body{
+    background-image: url('rankingImg/rankingbackground.png');
+}
+
+.rankingbox{
+    text-align: center;
+    margin-top: 150px;
+}
+
+.rankingtitle{
+    font-family: 'Jua', sans-serif;
+    font-size: 70px;
+    color : #fff;
+    text-shadow: -3px 0 #be8c1e, 0 3px #be8c1e, 3px 0 #be8c1e, 0 -3px #be8c1e;
+}
+
+.ranking{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.rank_name{
+    font-family: 'Jua', sans-serif;
+    font-size: 30px;
+    padding-right: 100px;
+    text-align: left;
+}
+
+.rank_score{
+    font-family: 'Jua', sans-serif;
+    font-size: 30px;    
+}
