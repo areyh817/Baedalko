@@ -1,8 +1,8 @@
 <?php
 $url = "localhost";
-$id = "root";
-$password="111111";
-$db = "bdk_db";
+$id = "baedalko";
+$password="비밀번호";
+$db = "baedalko";
 
 $conn = mysqli_connect($url,$id,$password,$db);
 

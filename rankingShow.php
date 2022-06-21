@@ -17,10 +17,9 @@
             <span class="rank_name">
             <?php
                 $url = "localhost";
-                $id = "root";
-                $password="111111";
-                $db = "bdk_db";
-
+                $id = "baedalko";
+                $password="비밀번호";
+                $db = "baedalko";
                 $conn = mysqli_connect($url,$id,$password,$db);
 
                 // 데이터베이스로부터 값 가져오기
@@ -41,9 +40,9 @@
         <span class="rank_score">
         <?php
                 $url = "localhost";
-                $id = "root";
-                $password="111111";
-                $db = "bdk_db";
+                $id = "baedalko";
+                $password="비밀번호";
+                $db = "baedalko";   
 
                 $conn = mysqli_connect($url,$id,$password,$db);
 
