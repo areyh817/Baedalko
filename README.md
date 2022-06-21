@@ -1,6 +1,5 @@
 # Baedalko :running:
-자바스크립트의 기초 지식이 있는 사람들이 손쉽게 달리면서 코딩문제를 풀어나가는 게임입니다.<br><br>
-:notebook_with_decorative_cover: notion : https://geode-gem-7b6.notion.site/JS-145ddcf4192f4575b3da59128ed03d90
+자바스크립트의 기초 지식이 있는 사람들이 손쉽게 달리면서 코딩문제를 풀어나가는 게임입니다.<br>
 <br><br>
 ### 기대효과
 아이템이 효력이 나타나게 하기 위해서는 자바스크립트 문제를 풀어야 하기 때문에 자연스럽게 자바스크립트에 대한 공부를 할 수 있으며 문제를 풀면 획득한 아이템의 능력을 사용할 수 있기 때문에 성취감을 얻을 수 있다. 게임도 하면서 자바스크립트 공부도 할 수 있기 때문에 일석이조의 효과가 있다.
@@ -14,7 +13,7 @@
 
 ### 사용기술 / 개발환경
 개발기간 : 2021.09 ~ 2021.11<br>
-사용기술 : HTML, CSS, JavaScript<br>
+사용기술 : HTML, CSS, JavaScript, php, MySQL<br>
 개발환경 : Visual Studio Code
 <br><br>
 
