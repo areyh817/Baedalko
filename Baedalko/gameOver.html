@@ -23,9 +23,17 @@
 <body>
     <div style="text-align: center; margin-top:160px;">
         <span class = "gameoverTitle">GAME OVER</span>
-        <form action="ranking.php" method="POST">
+        <form action="/ranking.php" method="POST">
             
-            <button type="submit" onClick="submitScore()">순위보기</button>  
+            <button type="submit" onClick="submitScore()">이름 입력하기</button>  
+            <!--<p class = "Score">SCORE : <input id = "player_score" class = "player_score" disabled></p> -->
+
+                <input type="hidden" id="username" name="username">
+                <input type="hidden" id="score" name="score">
+        </form>
+        <form action="/rankingShow.php" method="POST">
+            
+            <button type="submit">순위 확인하기</button>  
             <!--<p class = "Score">SCORE : <input id = "player_score" class = "player_score" disabled></p> -->
 
                 <input type="hidden" id="username" name="username">
@@ -43,15 +51,15 @@
         let score = location.href.split('?')[1]; 
         // alert("score : " + score);
 
-        // function submitScore(){
+        function submitScore(){
 
-        //     let username = prompt("What is your name?");
-        //     document.getElementById('username').value = username;
-        //     temp = location.href.split("?"); 
-        //     data=temp[1].split(":");
-        //     score = data[0];
-        //     document.getElementById("score").value = score;
-        //  }
+        let username = prompt("이름을 입력해주세요.");
+        document.getElementById('username').value = username;
+        temp = location.href.split("?"); 
+        data=temp[1].split(":");
+        score = data[0];
+        document.getElementById("score").value = score;
+        }
 
         /*
         temp = location.href.split("?"); 

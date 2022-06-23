@@ -17,11 +17,13 @@ if ( !mysqli_query ($conn,"insert into game(name, score) values('$name','$score'
 
 
 
+
+
 /*
 $sql = "insert into game(name, socer) values('$name','$score')";
 mysqli_query($conn,$sql);
 mysqli_close($conn);
 */
 ?>
-<!--
-<meta http-equiv="refresh" content="1;url=index.html">
+
+<meta http-equiv="refresh" content="1;url=rankingShow.php">

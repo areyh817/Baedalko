@@ -23,13 +23,16 @@
 <body>
     <div style="text-align: center; margin-top:160px;">
         <span class = "gameoverTitle">GAME OVER</span>
-        <form action="ranking.php" method="POST">
-            
-            <button type="submit" onClick="submitScore()">순위보기</button>  
+        <form action="ranking.php" method="post">
+            <button type="submit" onClick="submitScore()">점수입력하기</button>  
             <!--<p class = "Score">SCORE : <input id = "player_score" class = "player_score" disabled></p> -->
 
                 <input type="hidden" id="username" name="username">
                 <input type="hidden" id="score" name="score">
+        </form>
+        <form action="ranking.php" method="POST">
+            
+
         </form>
 
 
