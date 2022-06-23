@@ -260,8 +260,8 @@ function Character(posX, width, height) {
         let i = 0;
         for (i in shapes){
             if(collision(this, shapes[i])){ //장애물과 충돌했다면 처음 자리로 돌아가기
-                // this.Position.X = 35;
-                // this.Position.Y = screenHeight - 210;
+                this.Position.X = 35;
+                this.Position.Y = screenHeight - 210;
             }
         }
 
