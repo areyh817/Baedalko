@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.canvas {
+    /* position:absolute;
+    top:60%;left:50%;
+    transform:translate(-50%,-50%);
+    transition:all 10s;
+    width:20%; */
+    background-color:#f5f5f5;
+    border: 1px solid blue;
+}
+
+/* .background {
+    position:relative;
+    width:1702px; height: 680px;
+    background:url('/gamebackground/school_backgrouond.png');
+    background-color:#ffffff;
+    
+} */
+
+
+.background {
+    position:relative;
+    width:1700px; height: 680px;    /*1685*/
+    background:url('school_backgrouond.png') 0 center / 2220px repeat-x;
+    height: 98vh;
+    background-color:#f5f4f5;
+    border: 1px solid red;
+
+}
+
+
+
+.background  .Time {
+    /* position:absolute; */
+    margin: 0px;
+    font-family: 'Jua', sans-serif;
+    font-size: 40px;
+    /* border: 1px solid #dc1313; */
+    text-align: center;
+    margin-left: 100px;
+    border: 1px solid yellow;
+    width: 250px
+    /* align: left; */
+    /* margin-top: -10px; */
+    /* z-index: 1; */
+}
+
+#timer {
+    font-family: 'Jua', sans-serif;
+    font-size: 40px;
+    width: 50px;
+}

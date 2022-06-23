@@ -1,0 +1,65 @@
+<!--게임 오버-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="gameOver.css">
+    <!-- Neo둥근모 -->
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Dalgona/neodgm-webfont@1.510/neodgm/style.css">  -->
+    <!-- Neo둥근모 Code --> 
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Dalgona/neodgm-webfont@1.510/neodgm_code/style.css"> -->
+    
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+
+    <link href="icon.ico" rel="shortcut icon">
+    <link href="icon.ico" rel="shortcut icon">
+    <title>배달코</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    <div style="text-align: center; margin-top:160px;">
+        <span class = "gameoverTitle">GAME OVER</span>
+        <form action="ranking.php" method="POST">
+            
+            <button type="submit" onClick="submitScore()">순위보기</button>  
+            <!--<p class = "Score">SCORE : <input id = "player_score" class = "player_score" disabled></p> -->
+
+                <input type="hidden" id="username" name="username">
+                <input type="hidden" id="score" name="score">
+        </form>
+
+
+
+    </div>
+    <div style="text-align: center; margin-top: 150px;">
+        <a href="subjectChoice.html"><button class = "startBtn" id = "start" onclick="button2_click()">다시하기</button></a>
+    </div>
+
+    <script language = "javascript">
+        let score = location.href.split('?')[1]; 
+        alert("score : " + score);
+
+        // function submitScore(){
+
+        //     let username = prompt("What is your name?");
+        //     document.getElementById('username').value = username;
+        //     temp = location.href.split("?"); 
+        //     data=temp[1].split(":");
+        //     score = data[0];
+        //     document.getElementById("score").value = score;
+        //  }
+
+        /*
+        temp = location.href.split("?"); 
+        data=temp[1].split(":");
+        score = data[0];
+        let d = document.getElementById("player_score").value = score;
+
+        */
+    </script>
+</body>
+</html>

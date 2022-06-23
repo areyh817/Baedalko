@@ -30,8 +30,8 @@
     
     
     <div class = "choicebox">
-        <button class = "startBtn" id = "subject_c" onclick="btn_click()">C언어</button>
-        <button class = "startBtn" id = "subject_java" onclick="btn_click()">Java</button>
+        <button class = "startBtn" id = "subject_common" onclick="btn_click()">기본상식</button>
+        <button class = "startBtn" id = "subject_entertainer" onclick="btn_click()">연예인</button>
         <button class = "startBtn" id = "subject_js" onclick="btn_click()">자바스크립트</button>
         <button class = "startBtn" id = "subject_ds" onclick="btn_click()">자료구조</button>
         <audio id="audio" src="audio/btnclick.mp3"></audio>
@@ -40,29 +40,31 @@
     <script src="main.js"></script>
 
     <script type="text/javascript"> 
-        let c = "c";
-        let java = "java";
+        let common = "common";
+        let entertainer = "entertainer";
         let js = "js";
         let ds = "ds";
 
-        let subject_c = document.getElementById('subject_c');
-        subject_c.addEventListener('click', () => {
-            location.href = `game_subway/subway.html?${c}`;
+        let subject_common = document.getElementById('subject_common');
+        subject_common.addEventListener('click', () => {
+            // alert("오픈 중입니다!");
+            location.href = `gradeChoice.html?${common}`;
         });
 
-        let subject_java = document.getElementById('subject_java');
-        subject_java.addEventListener('click', () => {
-            location.href = `game_subway/subway.html?${java}`;
+        let subject_entertainer = document.getElementById('subject_entertainer');
+        subject_entertainer.addEventListener('click', () => {
+            // alert("오픈 중입니다!");
+            location.href = `gradeChoice.html?${entertainer}`;
         });
 
         let subject_js = document.getElementById('subject_js');
         subject_js.addEventListener('click', () => {
-            location.href = `game_subway/subway.html?${js}`;
+            location.href = `gradeChoice.html?${js}`;
         });
 
         let subject_ds = document.getElementById('subject_ds');
         subject_ds.addEventListener('click', () => {
-            location.href = `game_subway/subway.html?${ds}`;
+            location.href = `gradeChoice.html?${ds}`;
         });
     </script>
 </body>
