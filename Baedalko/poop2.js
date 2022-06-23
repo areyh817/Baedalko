@@ -470,13 +470,13 @@ function Question() {
     //let rand = 4;
 
     //문제 랜덤
-    // let rand;
+    let rand;
 
     // 문제 중복없이 출제
     // alert("Question_random : " + Question_random);
     // alert("Question_random.length : " + Question_random.length);
 
-    /*
+    
     for(let i = 0; i < Question_random.length; i++) {
         rand = Math.floor(Math.random() * 16)+1;
         if(!Question_random.includes(rand)) {
@@ -486,14 +486,14 @@ function Question() {
             i--;
         }
     }
-    */
+    
     
     
 
     // alert("rand : " + rand);
     // alert(Question_random);
 
-    let rand = 17;
+    // let rand = 17;
 
     switch(rand){
         case 1: 

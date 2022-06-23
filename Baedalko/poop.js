@@ -31,7 +31,7 @@ background.src = "gamebackground/school_backgrouond.png";
 let answer_true = new Audio('audio/true.wav');  //문제 정답시
 let answer_false = new Audio('audio/wrong.wav');   //문제 오답시
 
-let screenWidth = 1350;          //화면 가로 //canvas : 1685
+let screenWidth = 1250;          //화면 가로 //canvas : 1685
 let screenHeight = 900;          //화면 세로
 let shapes = {};                 //장애물 담을 객체
 let shapeIndex = 0;
@@ -344,7 +344,7 @@ function Updater() {
     // ctx.fillStyle = "#f5f5dc";
     // ctx.fillRect(0, 138, screenWidth+50, screenHeight);
 
-    ctx.clearRect(0, 138, screenWidth+50, screenHeight); //캔버스 초기화, 안해주면 장애물 길게 늘어남
+    ctx.clearRect(0, 138, 1350+50, screenHeight); //캔버스 초기화, 안해주면 장애물 길게 늘어남
     let i = 0;
     for(i in shapes) {
         // alert(shapes)
@@ -470,13 +470,13 @@ function Question() {
     //let rand = 4;
 
     //문제 랜덤
-    // let rand;
+    let rand;
 
     // 문제 중복없이 출제
     // alert("Question_random : " + Question_random);
     // alert("Question_random.length : " + Question_random.length);
 
-    /*
+    
     for(let i = 0; i < Question_random.length; i++) {
         rand = Math.floor(Math.random() * 16)+1;
         if(!Question_random.includes(rand)) {
@@ -486,14 +486,14 @@ function Question() {
             i--;
         }
     }
-    */
+    
     
     
 
     // alert("rand : " + rand);
     // alert(Question_random);
 
-    let rand = 17;
+    // let rand = 17;
 
     switch(rand){
         case 1: 
